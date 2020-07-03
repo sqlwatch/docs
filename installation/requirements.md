@@ -1,5 +1,0 @@
----
-parent: Installation
----
-
-## Requirements
