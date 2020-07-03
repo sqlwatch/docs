@@ -3,7 +3,7 @@ parent: Getting Started
 nav_order: 2
 ---
 
-## Optional Components
+# Optional Components
 {: .no_toc }
 
 ---
@@ -13,7 +13,7 @@ The following optional components can be installed:
 - TOC
 {:toc}
 
-##sp_WhoIsActive
+## sp_WhoIsActive
 
 SQLWATCH can log output from Adam Machanic's, fantastic `sp_WhoIsAcitve` which can also be installed using dbatools:
 
