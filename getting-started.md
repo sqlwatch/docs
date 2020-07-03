@@ -19,4 +19,8 @@ dbatools support multi-server installation with a single command:
 Install-DbaSqlWatch -SqlInstance Server1, Server2, Server3 -Database SQLWATCH
 ```
 
-<iframe width="800" height="625" src="https://www.youtube-nocookie.com/embed/W38osuBv_Q8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="container">
+  <iframe class="responsive-iframe" src="https://www.youtube-nocookie.com/embed/W38osuBv_Q8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+
