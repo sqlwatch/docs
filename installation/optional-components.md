@@ -23,4 +23,4 @@ Install-DbaWhoIsActive -SqlInstance YourServer -Database master
 
 ## dbachecks
 
-https://dbachecks.readthedocs.io/en/latest/
+[Learn more about dbachecks](https://dbachecks.readthedocs.io/en/latest/). When dbachecks write output to the SQLWATCH database, the results will be shown on the SQLWATCH dashboard which can be correlated with other metrics. 
