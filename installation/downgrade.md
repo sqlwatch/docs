@@ -1,5 +1,5 @@
 ---
-parent Getting Started
+parent: Getting Started
 nav_order: 50
 ---
 
