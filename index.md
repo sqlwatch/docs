@@ -1,12 +1,15 @@
 ---
 nav_order: 1
 permalink: /
+title: Home
 ---
 
-## Concept
+## Free and Open Source SQL Server Monitoring Framework
 
 1. TOC
 {:toc}
+
+## Concept
 
 SQLWATCH was primarily developed for decentralised Performance Monitoring, ad-hoc Performance Testing and Performance Data Logging in Production Environments for reactive analysis - i.e. to investigate problems after they have occurred. It relies on the SQL Server Agent to invoke local data collection.
 
