@@ -1,6 +1,9 @@
 remote_theme: pmarsceill/just-the-docs
 color_scheme: custom-light
 
+permalink: pretty
+exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json",  "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
+
 plugins:
   - jemoji
   - jekyll-seo-tag  
@@ -15,6 +18,7 @@ aux_links:
   "GitHub":
     - "https://github.com/marcingminski/sqlwatch"
   
+
 # Back to top link
 back_to_top: true
 back_to_top_text: "Back to top"
