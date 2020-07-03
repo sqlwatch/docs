@@ -82,7 +82,7 @@ SQLWATCH is being made with :heart: by [Marcin Gminski](https://github.com/marci
 ## Contributing
 When contributing to this repository, please first discuss the change you wish to make via issue, email, discourse or any other method with the owners of this repository before making a change. Read more about becoming a contributor in our GitHub repo.
 
-THANK YOU TO THE CONTRIBUTORS!
+**THANK YOU TO THE CONTRIBUTORS!**
 
 ## Code of Conduct
 SQLWATCH is committed to fostering a welcoming community.
