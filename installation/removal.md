@@ -32,3 +32,5 @@ When removing manually please ensure the follwowing objects are removed:
 - Extended Events (`SQLWATCH-%`)
 - Agnet Jobs (`SQLWATCH-%`)
 - Any additional PowerShell scripts used by the Actions engine (only if you have installed any manually, SQWALTCH does not create anything on the disk)
+
+If you have installed Windows Scheduled Tasks they will too need to be removed manually.
