@@ -1,5 +1,6 @@
 ---
 title: Getting Started
+nav_order: 10
 ---
 
 ## Getting Started
@@ -20,4 +21,4 @@ Install-DbaSqlWatch -SqlInstance Server1, Server2, Server3 -Database SQLWATCH
 
 [![SQLWATCH install with dbatools](https://img.youtube.com/vi/W38osuBv_Q8/0.jpg)](https://www.youtube.com/watch?v=W38osuBv_Q8)
 
-<iframe width="100%" height="600" src="http://www.youtube.com/embed/W38osuBv_Q8" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/W38osuBv_Q8?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
