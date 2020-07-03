@@ -4,7 +4,7 @@ nav_order: 10
 ---
 
 # Getting Started
-
+{: .no_toc }
 ---
 
 SQLWATCH is a SQL Server database with some agent jobs. Installing SQLWATCH means deploying the database and corresponding agent jobs. 
