@@ -11,7 +11,7 @@ nav_order: 1
 - TOC
 {:toc}
 
-## Install with SqlPackage
+## SqlPackage
 
 The `SqlPackage.exe` is a command-line utility that automates SQL Server database deployments. This command comes with SQL Server Management Studio (SSMS) and is located in the ...\DAC\bin folder: `C:\Program Files (x86)\Microsoft SQL Server\140\DAC\bin\SqlPackage.exe` Where 140 is the version of installed Management Studio. Your version and path may be different from the example. [Learn more about SqlPackage](https://docs.microsoft.com/en-us/sql/tools/sqlpackage)
 
@@ -26,7 +26,7 @@ SqlPackage.exe
     /p:RegisterDataTierApplication=True
 ```
 
-## Install with SSMS
+## Management Studio
 
 SQL Server Management Studio (SSMS) is a free, integrated development environment (IDE) for SQL Server. [Learn more about SSMS](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -38,7 +38,7 @@ Connect to the desired SQL Server, right click on Databases and select Deploy Da
   <iframe class="responsive-iframe" src="https://www.youtube-nocookie.com/embed/caufO79tKo4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-## Deploy from source code
+## Build from Source
 
 SQLWATCH is developed in [Visual Studio Community (Express)](https://visualstudio.microsoft.com/vs/express/). You can obtain a free copy of the Community edition on Microsoft website. You can also use Visual Studio Standard or Professional. You will also need to install [Data Tools (SSDT)](https://docs.microsoft.com/en-us/sql/ssdt/download-sql-server-data-tools-ssdt) - a Visual Studio plugin to understand SQL Server databases.
 
