@@ -69,4 +69,14 @@ Please note the `instance_name` is dynamic and contains actual names of objects 
 | _Total                                                                                                 | Will only include '_Total' instances. This is useful if we only want to collect high level aggregates and are not interested in low level objects i.e. database                                                                                                                                                                                |
 | <* !_Total>                                                                                            | Will not include '_Total' instances, i.e. it will collect any other instances for this particular counter_name but not totals. This is useful if we want to collect low level objects i.e. database performance and will be aggregating and calculating totals, for example in Power BI. In this case there is no value in collecting totals.  |
 
+## Recreate agent jobs
 
+To create all default SQLWATCH agent jobs you can run:
+
+```
+--add any missing SQLWATCH jobs, will not remove existing SQLWATCH jobs:
+exec [dbo].[usp_sqlwatch_config_set_default_agent_jobs]
+
+--remove existing and recreate all SQLWATCH jobs:
+exec [dbo].[usp_sqlwatch_config_set_default_agent_jobs] @remove_existing = 1
+```
