@@ -8,11 +8,14 @@ nav_order: 99
 
 ---
 
+SQLWATCH is a SQL Server database. It can be removed in two ways:
+
 - TOC
 {: toc }
 
 ## dbatools
-SQLWATCH is a SQL Server database. It can be removed automatically via dbatools:
+
+Automatically with dbatools
 
 ```
 Uninstall-DbaSqlWatch
