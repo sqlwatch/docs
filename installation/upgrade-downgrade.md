@@ -1,6 +1,7 @@
 ---
 parent: Getting Started
 nav_order: 10
+title: Upgrade and Downgrade
 ---
 
 # Upgrade
