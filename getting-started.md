@@ -46,3 +46,11 @@ Install-DbaSqlWatch -SqlInstance DevServer1 -Database SQLWATCH -PreRelease
 </div>
 
 >The `Install-DbaSqlWatch` was designed for unattended multi-server installations. It will download the latest release and unpack it, including the Power BI dashboard, into its temporary directory.
+
+## Objects
+
+During installation, the following objects will be created:
+- SQLWATCH database (or SQLWATCH objects in the existing database is such option was selected)
+- Extended Event Sessions (`SQLWATCH-%`)
+- Agent Jobs (`SQLWATCH-%`)
+
