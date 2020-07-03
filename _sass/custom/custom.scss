@@ -1,8 +1,8 @@
-.main-content a {
+.main-content a:not(.btn) {
   padding:2px 4px 2px 4px;
 }
 
-.main-content a:hover {
+.main-content a:not(.btn):hover {
   background: $purple-100;
   border-radius: 2px;
   color: #ffffff;
