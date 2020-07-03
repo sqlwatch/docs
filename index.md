@@ -4,7 +4,8 @@ permalink: /
 title: Home
 ---
 
-## Free and Open Source SQL Server Monitoring Framework
+# Free and Open Source SQL Server Monitoring Framework
+
 
 1. TOC
 {:toc}
