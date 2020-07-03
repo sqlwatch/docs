@@ -52,3 +52,15 @@ SqlPackage.exe
     /TargetServerName:YOURSQLSERVER 
     /p:RegisterDataTierApplication=True
 ```
+
+## Install with SSMS
+
+SQL Server Management Studio (SSMS) is a free, integrated development environment (IDE) for SQL Server. [Learn more about SSMS](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms).
+
+To install SQLWATCH using SSMS, please download the required release from our GitHub Releases and unzip. In this example we are using C:\Temp
+Connect to the desired SQL Server, right click on Databases and select Deploy Data-Tier Application. Find the SQLWATCH.dacpac you have unzipped and follow the instructions:
+
+
+<div class="responsive-iframe-container responsive-iframe-container-4-3">
+  <iframe class="responsive-iframe" src="https://www.youtube-nocookie.com/embed/caufO79tKo4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
