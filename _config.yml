@@ -5,6 +5,16 @@ plugins:
   - jemoji
   - jekyll-seo-tag  
   
+  
+# Aux links for the upper right navigation
+aux_links:
+  "Homepage":
+    - "https://sqlwatch.io"
+  "Community":
+    - "https://meta.sqlwatch.io"    
+  "GitHub":
+    - "https://github.com/marcingminski/sqlwatch"
+  
 # Back to top link
 back_to_top: true
 back_to_top_text: "Back to top"
