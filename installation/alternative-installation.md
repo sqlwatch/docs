@@ -8,6 +8,8 @@ nav_order: 1
 
 ---
 
+The following alternative insatllation methods are currently supported:
+
 - TOC
 {:toc}
 
