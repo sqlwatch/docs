@@ -13,10 +13,10 @@ It must be installed on each monitored SQL Server instance.
 The project has been developed in Visual Studio Data Tools and the base for deployments are Data Application Tier Packages (DacPac). 
 This makes installation very simple and the easiest way is to install with [dbatools](https://dbatools.io/).
 
-1. TOC
+- TOC
 {:toc}
 
-### Install with dbatools
+## Install with dbatools
 
 dbatools support multi-server installation with a single command:
 
@@ -37,3 +37,7 @@ Install-DbaSqlWatch -SqlInstance DevServer1 -Database SQLWATCH -PreRelease
 </div>
 
 >The `Install-DbaSqlWatch` was designed for unattended multi-server installations. It will download the latest release and unpack it, including the Power BI dashboard, into its own temporary directory.
+
+## Install with SqlPackage
+
+The `SqlPackage.exe` is a command line utility that automates SQL Server database deployments. This command comes with SQL Server Management Studio (SSMS) and is located in the ...\DAC\bin folder: `C:\Program Files (x86)\Microsoft SQL Server\140\DAC\bin\SqlPackage.exe`
