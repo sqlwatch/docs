@@ -3,7 +3,7 @@ parent: Getting Started
 nav_order: 1
 ---
 
-# Alternative Installation methods
+# Alternative Installation
 {: .no_toc }
 
 ---
