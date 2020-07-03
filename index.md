@@ -14,6 +14,10 @@ title: Home
 1. TOC
 {:toc}
 
+## Welcome
+
+This is the documentation portal for SQLWATCH. We all know how difficult it is to keep documentation up to date and therefore I try to keep minimum information here. Enough to get started but too much so it does not become a burder when some parameters change. If you do not find what you are looking for or if you are having problems, plesae head over to the community corner where we can help you get started.
+
 ## Concept
 
 SQLWATCH was primarily developed for decentralised Performance Monitoring, ad-hoc Performance Testing and Performance Data Logging in Production Environments for reactive analysis - i.e. to investigate problems after they have occurred. It relies on the SQL Server Agent to invoke local data collection.
