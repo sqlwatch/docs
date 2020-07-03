@@ -1,5 +1,6 @@
 ---
-title: SQLWATCH Docs
+title: "SQLWATCH Docs"
+permalink: /docs/
 ---
 
 ## Welcome to GitHub Pages
