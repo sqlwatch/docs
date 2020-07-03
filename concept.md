@@ -43,3 +43,7 @@ Data collection is invoked via SQL Server Agent Jobs, since the Express Edition 
 ```sql
 exec [dbo].[usp_sqlwatch_config_set_default_agent_jobs] @print_WTS_command = 1
 ```
+
+## Additional reading
+- https://docs.microsoft.com/en-us/sql/relational-databases/extended-events/extended-events
+- https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views
