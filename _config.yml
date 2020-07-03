@@ -1,6 +1,6 @@
 remote_theme: pmarsceill/just-the-docs
 color_scheme: custom-light
-url: "https://sqlwatch.github.io"
+url: "https://sqlwatch.github.io/docs"
 
 plugins:
   - jemoji
