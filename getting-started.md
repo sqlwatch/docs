@@ -14,14 +14,13 @@ It must be installed on each monitored SQL Server instance.
 The project has been developed in Visual Studio Data Tools and the base for deployments are Data Application Tier Packages (DacPac). 
 You can install SQLWATCH in several ways.
 
+- TOC
+{:toc}
+
 During installation, the following objects will be created:
 - SQLWATCH database (or SQLWATCH objects in the existing database is such option was selected)
 - Extended Event Sessions (`SQLWATCH-%`)
 - Agent Jobs (`SQLWATCH-%`)
-
-
-- TOC
-{:toc}
 
 ## Install with dbatools
 
