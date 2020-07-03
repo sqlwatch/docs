@@ -25,7 +25,7 @@ Whilst the decentralised approach can be easier to implement, it introduces addi
 The frequent data collectors such as performance run every minute and take less than a second to execute. There are areas for improvement in the way the XML output from XE sessions is being parsed which will be addressed in the future releases.
 
 The below screenshot shows a 60 seconds window of CPU utilisation of the `sqlservr.exe` process. The spike is the performance collection which lasts few milliseconds:
-![SQLWATCH CPU Impact](/assets/sqlwatch-perf-collection-cpu-impact.png.png)
+![SQLWATCH CPU Impact](/blob/master/assets/sqlwatch-perf-collection-cpu-impact.png)
 
 ## Requirements
 
