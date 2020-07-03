@@ -66,13 +66,13 @@ The frequent data collectors such as performance run every minute and take less 
 
 The below screenshot shows a 60 seconds window of CPU utilisation of the `sqlservr.exe` process. The spike is the performance collection which lasts a few milliseconds:
 
-![SQLWATCH CPU Impact](/assets/images/sqlwatch-perf-collection-cpu-impact.png)
+![SQLWATCH CPU Impact]({{ site.url }}/assets/images/sqlwatch-perf-collection-cpu-impact.png)
 
 ## Storage Utilisation
 
 SQLWATCH schema has been designed with long term storage in mind. If possible, it is advisable to enable page compression on SQLWATCH data tables and indexes reducing utilisation by further 25-50%. The amount of space used by SQLWATCH depends on the retention period, the number of databases on the server and the workload. As guidance, below is the size of SQLWATCH in my test environment, with data compression enabled, after 30 days of use:
 
-![SQLWATCH Storage utilisation](/assets/images/sqlwatch-storage-utilisation-example.png)
+![SQLWATCH Storage utilisation]({{ site.url }}/assets/images/sqlwatch-storage-utilisation-example.png)
 
 >Appropriate index maintenance must in place in order to make sure table size is not being bloated over time.
 
