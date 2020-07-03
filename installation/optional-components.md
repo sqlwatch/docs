@@ -21,6 +21,8 @@ SQLWATCH will log output from Adam Machanic's, fantastic `sp_WhoIsAcitve` which 
 Install-DbaWhoIsActive -SqlInstance YourServer -Database master
 ```
 
+When the `sp_WhoIsActive` procedure is detected during installation, the job `SQLWATCH-LOGGER-WHOISACTIVE` will be deployed in enabled state. If the procedure is not detected during installation, the job will be deployed in a **disabled** state
+
 ## dbachecks
 
 [Learn more about dbachecks](https://dbachecks.readthedocs.io/en/latest/). When dbachecks write output to the SQLWATCH database, the results will be shown on the SQLWATCH dashboard which can be correlated with other metrics. 
