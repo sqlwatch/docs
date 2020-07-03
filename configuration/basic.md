@@ -4,7 +4,7 @@ has_children: true
 title: Configuration
 ---
 
-# Configuration
+# Basic Configuration
 {: .no_toc }
 
 ---
