@@ -80,6 +80,19 @@ SQLWATCH schema has been designed with long term storage in mind. If possible, i
 
 >Appropriate index maintenance must in place in order to make sure table size is not being bloated over time.
 
+## Large Environments
+
+There is no limit on how many servers can SQLWATCH monitor. It has been deployed in environments with over 3000 servers and due to its decentralised design, there are no "how many servers can the monitoring server monitor" concerns.
+
+In large environments, it is advisable to create more than one central repository: one or more for Production, one for QA, DEV etc. Instead of putting everything into one bucket, think about how you would like to report and monitor your environment. Perhaps more than one repository for production servers of different regions or cities, applications, use case, departments etc.
+
+In large and busy environments or in environments where space is a concern the following collectors can be disabled to limit the amount of data collected:
+- Index Statistics and Histograms 
+- Long Queries
+
+Furthermore, retention can be decreased to 1 or 2 days, or central repository deployed to offload data from remote instances.
+Please use the Top Tables report in SQL Server Management Studio to get an idea which tables are growing exponentially. 
+
 ## About the Project
 SQLWATCH is being made with :heart: by [Marcin Gminski](https://github.com/marcingminski) since 2018
 
