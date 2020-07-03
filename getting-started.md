@@ -40,4 +40,15 @@ Install-DbaSqlWatch -SqlInstance DevServer1 -Database SQLWATCH -PreRelease
 
 ## Install with SqlPackage
 
-The `SqlPackage.exe` is a command line utility that automates SQL Server database deployments. This command comes with SQL Server Management Studio (SSMS) and is located in the ...\DAC\bin folder: `C:\Program Files (x86)\Microsoft SQL Server\140\DAC\bin\SqlPackage.exe`
+The `SqlPackage.exe` is a command line utility that automates SQL Server database deployments. This command comes with SQL Server Management Studio (SSMS) and is located in the ...\DAC\bin folder: `C:\Program Files (x86)\Microsoft SQL Server\140\DAC\bin\SqlPackage.exe` Where 140 is the version of installed Management Studio. Your version and path may be different to the example. [Learn more about SqlPackage](https://docs.microsoft.com/en-us/sql/tools/sqlpackage)
+
+To install SQLWATCH using `SqlPackage.exe`, please download the required release from our GitHub Releases and unzip. In this example we are using C:\Temp:
+
+```
+SqlPackage.exe 
+    /Action:Publish 
+    /SourceFile:C:\Temp\SQLWATCH.dacpac 
+    /TargetDatabaseName:SQLWATCH 
+    /TargetServerName:YOURSQLSERVER 
+    /p:RegisterDataTierApplication=True
+```
