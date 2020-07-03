@@ -15,7 +15,7 @@ This makes installation very simple and the easiest way is to install with [dbat
 
 dbatools support multi-server installation with a single command:
 
-```PS
+```
 Install-DbaSqlWatch -SqlInstance Server1, Server2, Server3 -Database SQLWATCH
 ```
 
