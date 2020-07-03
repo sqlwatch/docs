@@ -1,6 +1,6 @@
 ---
 title: Known Issues
-nav_order: 40
+nav_order: 400
 ---
 
 # Known Issues
@@ -104,3 +104,7 @@ GO
 ALTER ROLE [db_datareader] ADD MEMBER [HOME\SQL-TEST-1$]
 GO
 ```
+
+## Deadlock when creating the database
+
+A few people experienced a deadlock whilst creating SQLWATCH Database. In all cases this was caused by the Query Store enabled on the model database. The locking transaction was `GetQdsTotalReseveredPageCount`. If you experience such issue, please disable Query Store on the model database and then re-try SQLWATCH deployment. 
