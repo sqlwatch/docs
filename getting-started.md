@@ -23,8 +23,16 @@ You can install SQLWATCH in several ways:
 
 ### Stable Release
 
+To install into SQLWATCH database (new database will be created):
+
 ```
 Install-DbaSqlWatch -SqlInstance Server1, Server2, Server3 -Database SQLWATCH
+```
+
+To install into your existing "DBA_ADMIN" database:
+
+```
+Install-DbaSqlWatch -SqlInstance Server1, Server2, Server3 -Database DBA_ADMIN
 ```
 
 ### Beta (Pre) Release
