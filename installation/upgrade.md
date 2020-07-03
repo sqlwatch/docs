@@ -4,6 +4,8 @@ parent: Getting Started
 
 # Upgrading
 
+---
+
 SQLWATCH has been developed in Visual Studio which is based on [Declarative Deployment Model](https://blogs.msdn.microsoft.com/gertd/2009/06/05/declarative-database-development/). 
 This means that when a database is deployed, the deployment mechanism works out what needs to be done to bring the target database to the desired version.
 
