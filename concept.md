@@ -16,6 +16,14 @@ SQLWATCH has been designed to address some of these challenges, especially in sm
 
 Automation and integration with dbatools make it easy to keep decentralised deployment in sync and up to date.
 
+## Components
+
+
+SQLWATCH is made of:
+- SQLWATCH database
+- Dashboards
+- Optional SSIS collector
+
 ## Performance Overhead
 
 Whilst the decentralised approach can be easier to implement, it introduces additional performance overhead. As we are reading the performance data form SQL Server Dynamic Management Views, we also have to write it on the same instance. SQLWATCH is designed with minimum overhead. It utilises SQL Server Extended Events (XES) where possible and Dynamic Management Views (DMV) collectors that run every minute by default.
