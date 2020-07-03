@@ -73,7 +73,7 @@ SQLWATCH schema has been designed with long term storage in mind. If possible, i
 >Appropriate index maintenance must in place in order to make sure table size is not being bloated over time.
 
 ## About the Project
-SQLWATCH is being made with :heart: by Marcin Gminski since 2018
+SQLWATCH is being made with :heart: by [Marcin Gminski](https://github.com/marcingminski) since 2018
 
 ## Contributing
 When contributing to this repository, please first discuss the change you wish to make via issue, email, discourse or any other method with the owners of this repository before making a change. Read more about becoming a contributor in our GitHub repo.
