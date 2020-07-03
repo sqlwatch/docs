@@ -28,7 +28,7 @@ Please be aware that there are safety measures built into the removal process to
 ## Manually
 
 When removing manually please ensure the follwowing objects are removed:
-- SQLWATCH database
+- SQLWATCH database (`DROP DATABASE`)
 - Extended Events (`SQLWATCH-%`)
 - Agnet Jobs (`SQLWATCH-%`)
 - Any additional PowerShell scripts used by the Actions engine (only if you have installed any manually, SQWALTCH does not create anything on the disk)
