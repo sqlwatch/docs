@@ -5,6 +5,9 @@ permalink: /
 
 ## Concept
 
+1. TOC
+{:toc}
+
 SQLWATCH was primarily developed for decentralised Performance Monitoring, ad-hoc Performance Testing and Performance Data Logging in Production Environments for reactive analysis - i.e. to investigate problems after they have occurred. It relies on the SQL Server Agent to invoke local data collection.
 
 >Each SQL Server monitors itself and alerts only when it needs attention. Power BI Report can be used to analyse historical performance data. To meet the popular demand for central reporting, an optional centralised reporting repository was recently introduced. 
