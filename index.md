@@ -31,18 +31,6 @@ SQLWATCH is made of:
 - Dashboards
 - Optional SSIS collector
 
-## Performance Overhead
-
-Whilst the decentralised approach can be easier to implement, it introduces additional performance overhead. As we are reading the performance data form SQL Server Dynamic Management Views, we also have to write it on the same instance. SQLWATCH is designed with minimum overhead. It utilises SQL Server Extended Events (XES) where possible and Dynamic Management Views (DMV) collectors that run every minute by default.
-
-> SQL Server The Extended Events architecture enables users to collect as much or as little data as is necessary to troubleshoot or identify a performance problem. Extended Events is configurable, and it scales very well.
-
-The frequent data collectors such as performance run every minute and take less than a second to execute. There are areas for improvement in the way the XML output from XE sessions is being parsed which will be addressed in the future releases.
-
-The below screenshot shows a 60 seconds window of CPU utilisation of the `sqlservr.exe` process. The spike is the performance collection which lasts a few milliseconds:
-
-![SQLWATCH CPU Impact](/assets/sqlwatch-perf-collection-cpu-impact.png)
-
 ## Requirements
 
 SQLWATCH has been tested with the following SQL Server editions and versions: 
@@ -63,6 +51,18 @@ exec [dbo].[usp_sqlwatch_config_set_default_agent_jobs] @print_WTS_command = 1
 Additional reading
 - [Extended Events](https://docs.microsoft.com/en-us/sql/relational-databases/extended-events/extended-events)
 - [Dynamic Management Views](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)
+
+## Performance Overhead
+
+Whilst the decentralised approach can be easier to implement, it introduces additional performance overhead. As we are reading the performance data form SQL Server Dynamic Management Views, we also have to write it on the same instance. SQLWATCH is designed with minimum overhead. It utilises SQL Server Extended Events (XES) where possible and Dynamic Management Views (DMV) collectors that run every minute by default.
+
+> SQL Server The Extended Events architecture enables users to collect as much or as little data as is necessary to troubleshoot or identify a performance problem. Extended Events is configurable, and it scales very well.
+
+The frequent data collectors such as performance run every minute and take less than a second to execute. There are areas for improvement in the way the XML output from XE sessions is being parsed which will be addressed in the future releases.
+
+The below screenshot shows a 60 seconds window of CPU utilisation of the `sqlservr.exe` process. The spike is the performance collection which lasts a few milliseconds:
+
+![SQLWATCH CPU Impact](/assets/sqlwatch-perf-collection-cpu-impact.png)
 
 ## Storage Utilisation
 
