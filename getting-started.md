@@ -11,14 +11,14 @@ SQLWATCH is a SQL Server database with some agent jobs. Installing SQLWATCH mean
 It must be installed on each monitored SQL Server instance. 
 
 The project has been developed in Visual Studio Data Tools and the base for deployments are Data Application Tier Packages (DacPac). 
-This makes installation very simple and the easiest way is to install with [dbatools](https://dbatools.io/).
+You can install SQLWATCH in several ways:
 
 - TOC
 {:toc}
 
 ## Install with dbatools
 
-dbatools support multi-server installation with a single command:
+[dbatools](https://dbatools.io/) support multi-server installation with a single command:
 
 ### Stable Release
 
