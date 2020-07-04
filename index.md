@@ -7,7 +7,7 @@ title: Home
 # Free and Open Source SQL Server Monitoring Framework
 {: .no_toc }
 
-[Get started](/getting-started){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View it on GitHub](https://github.com/marcingminski/sqlwatch){: .btn .fs-5 .mb-4 .mb-md-0 }
+[Get started]({{ site.baseurl }}/getting-started){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View it on GitHub](https://github.com/marcingminski/sqlwatch){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
 
