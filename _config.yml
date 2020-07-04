@@ -4,7 +4,7 @@ color_scheme: custom-light
 permalink: pretty
 exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json",  "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
 
-logo: "/assets/images/sqlwatch-docs-logo.svg"
+logo: "/assets/images/sqlwatch-docs-logo-purple.svg"
 
 plugins:
   - jemoji
