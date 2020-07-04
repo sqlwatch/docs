@@ -26,6 +26,9 @@ Central Repository can download data from remote instances in two ways:
 
 Both methods do a FULL load of the relatively small `meta*` tables and delta loads of the `logger*` tables that contain the actual performance data. Whilst SSIS is a performance optimised engine and may perform faster, there is no noticable performance advantage of using either method and both perform in a similar way when pulling remote data. The advantage of using Linked Server is that it does not require SSIS and can be run on a SQL Server Express Edition with jobs invoked via Windows Scheduled Tasks instead of the SQL Agent.
 
+>Linked Server approach is built programmatically and therefore easier to develop and maintain. It contains several improvements over the SSIS method, such as message logging to a table, automatic table import without the explicit declaration (SSIS requires metadata refresh which slows down the development) and forces full load of the header tables if missing keys are detected.
+
+
 ## SSIS
 
 >It is assumed that the SQL Server Intergration Services (SSIS) is installed and configured and that the SSISDB has been initialised and the environment is operational.
@@ -67,6 +70,33 @@ The SQL Password to access central repository or blank for Windows authenticatio
 **repository_user_name**:
 The SQL User to access central repository or blank for Windows authentication.
 
-## Linked Server
+#### Worker Package
 
->Linked Server approach is built programmatically and therefore easier to develop and maintain. It contains several improvements over the SSIS method, such as message logging to a table, automatic table import without the explicit declaration (SSIS requires metadata refresh which slows down the development) and forces full load of the header tables if missing keys are detected.
+The worker package `import_remote_data.dtsx` is responsible for the actual data collection from remote instances into the central repository.
+![SQLWATCH SSIS Worker Package]({{ site.baseurl }}/assets/images/sqlwatch-worker-package.png)
+
+**Parameters**
+
+>Worker package parameters are passed from the control package. However, you can also invoke the worker package manually for a specific instance with the same parameters
+
+**last_snapshot_offset_minutes (NOT USED)**: 
+Offset in minutes to increase delta time slice. By default, only data since the last snapshot will be collected from the remote instance. We may increase this and go further beyond that to cover any gaps. Behind the scenes this translates to `[snapshot_time] > dateadd(minute,-@last_snapshot_offset_minutes,[last_snapshot_time])`
+
+**remote_instance_name**: 
+SQL Instance to collect data from. This parameter is passed from the control package during run time.
+
+**remote_password**: 
+SQL Password for the remote instance or blank for Windows authentication.
+
+**remote_user_name**: 
+SQL User for the remote instance or blank for Windows authentication.
+
+>In the current implementation, it is not possible to specify different accounts for accessing remote instances. This means that when using SQL Authentication all instances must have the same SQL User and Password. When using Windows authentication this is usually not a problem as the SSIS runs under a context of one the SQL agent or proxy account
+
+**repository_database** The name of the database where the central repository is. Default SQLWATCH.
+
+**repository_instance_name** The name of the SQL Server instance where the central repository is hosted.
+
+**repository_password** The SQL Password to access central repository or blank for Windows authentication.
+
+**repository_user_name** The SQL User to access central repository or blank for Windows authentication.
