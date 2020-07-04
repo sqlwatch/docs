@@ -27,9 +27,10 @@ Central Repository can download data from remote instances in two ways:
 Both methods do a FULL load of the relatively small `meta*` tables and delta loads of the `logger*` tables that contain the actual performance data. Whilst SSIS is a performance optimised engine and may perform faster, there is no noticable performance advantage of using either method and both perform in a similar way when pulling remote data. The advantage of using Linked Server is that it does not require SSIS and can be run on a SQL Server Express Edition with jobs invoked via Windows Scheduled Tasks instead of the SQL Agent.
 
 ## SSIS
-### SSIS Package Deployment
 
->It is assumed that the SSIS Server is installed and configured and that the SSISDB has been initialised and the environment is operational.
+>It is assumed that the SQL Server Intergration Services (SSIS) is installed and configured and that the SSISDB has been initialised and the environment is operational.
+
+### SSIS Package Deployment
 
 The SSIS package can be easily deployed using the provided `.ispac` file. [Learn more about SSIS deployment](https://docs.microsoft.com/en-us/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages). Alternatively, it can be also deployed from the Visual Studio Project. Upgrading SSIS package is simply re-deploying a newer version and removal is done by deleting the deployed package.
 
