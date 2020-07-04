@@ -26,7 +26,8 @@ Central Repository can download data from remote instances in two ways:
 
 Both methods do a FULL load of the relatively small `meta*` tables and delta loads of the `logger*` tables that contain the actual performance data. Whilst SSIS is a performance optimised engine and may perform faster, there is no noticable performance advantage of using either method and both perform in a similar way when pulling remote data. The advantage of using Linked Server is that it does not require SSIS and can be run on a SQL Server Express Edition with jobs invoked via Windows Scheduled Tasks instead of the SQL Agent.
 
-## SSIS Package Deployment
+## SSIS
+### SSIS Package Deployment
 
 >It is assumed that the SSIS Server is installed and configured and that the SSISDB has been initialised and the environment is operational.
 
@@ -36,14 +37,14 @@ The SSIS package can be easily deployed using the provided `.ispac` file. [Learn
   <iframe class="responsive-iframe" src="https://www.youtube-nocookie.com/embed/RKfOBlTXk_A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-## SSIS Package Configuration
+### SSIS Package Configuration
 
 To configure SSIS package, navigate to the Project in the Integration Services Catalogs:
 ![SQLWATCH SSIS Configuration]({{ site.baseurl }}/assets/images/sqlwatch-ssis-package-configuration.png)
 
 You can apply the configuration to the project, or individual packages. The project will contain the collection of all configuration options from child packages. [Learn more about SSIS Catalog](https://docs.microsoft.com/en-us/sql/integration-services/catalog/ssis-catalog)
 
-### Control Package
+#### Control Package
 
 The control package `control_import.dtsx` is responsible for orchestrating multi-threaded data collection and execution of the Worker Package `import_remote_data.dtsx`
 ![SQLWATCH SSIS Control Package]({{ site.baseurl }}/assets/images/sqlwatch-control-package.png)
