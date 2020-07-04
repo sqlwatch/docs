@@ -17,7 +17,7 @@ It's a free Windows application that can be downloaded from their [website](http
 Power BI is very efficient in handling data and displaying visuals. It is also very efficient in data storage making files very small. 90% of Power BI Performance will depend on your local desktop. 
 I have used SQLWATCH dashboard comfortably on a Surface 4 with i7 and 8GB RAM. [Hardware requirements](https://docs.microsoft.com/en-us/power-bi/desktop-get-the-desktop#minimum-requirements)
 
-SQLWATCH Dashboard can also run in the Power BI Service. There are no custom requirements for Visuals or any other components. Neither R nor Python are required.
+SQLWATCH Dashboard can also run in the Power BI Service. There are no customs requirements for Visuals or any other components. Neither R nor Python is required.
 
 1. TOC 
 {:toc}
@@ -29,8 +29,27 @@ Database permissions required to ingest data into Power BI are `SELECT` on views
 
 ## Getting Started
 
-To set started, simply open the SQLWATCH dashboard (.`pbx`) in the Power BI Dekstop application.
+To set started, simply open the SQLWATCH dashboard (.`pbx`) in the Power BI Desktop application.
 
->Please note, if you have deploued SQLWATCH using dbatools, the deployment package has been downloaded to the PowerShell temporary directory. This will also include the Power BI template. If you are struggling to find it, you can grab a copy from [GitHub](https://github.com/marcingminski/sqlwatch/releases/latest) 
+>Please note, if you have deployed SQLWATCH using dbatools, the deployment package has been downloaded to the PowerShell temporary directory. This will also include the Power BI template. If you are struggling to find it, you can grab a copy from [GitHub](https://github.com/marcingminski/sqlwatch/releases/latest) 
 
 ## Parameters
+
+Once you have opened the dashboard in Power BI, you are going to have to tell it your server and database names so it can download the data. This is done in parameters:
+![PowerBI Parameters Edit]({{ site.baseurl}}//assets/images/sqlwatch-powerbi-edit-parameters.png)
+
+**SQL Instance**: SQL Instance with SQLWATCH or SQLWATCH Central Repository to connect to
+
+**SQLWATCH Database**: Name of the databases where SQLWATCH is deployed. By default this is SQLWATCH
+
+**Repository Filter SQL Instance**: When connected to the repository, all SQL Instances will be shown on the dashboard. Sometimes, however, we want to investigate one specific server in which case, we can limit what is being downloaded to the Dashboard.
+
+**Report End Time (datetime)**: For servers and clients in the same time zone, type date and time when you want reporting window to end. Follow the example in the dropdown box or select NOW to get the most recent, timezone agnostic, data. For example, if you type 2018-12-31 23:59:59, the report will show data up till that timestamp. If your server is in a different time zone than PowerBI, you may need to manually set dates, based on the local server DateTime.
+
+**Report Window (hours)**: How many hours to import going back from the Report end time. For example, if this parameter = 4 and End Time = GETDATE() the report will show last 4 hours from now. This way you can travel back in time and see any time slice of historical performance data. You can select from the dropdown or type your own.
+
+**Report Aggregation**: Select aggregation over time or type your own. Select DEFAULT to let it automatically calculate the best level based on the report window. For example 5 minute will average data points over 5 minute periods and For large windows i.e. last 30 days you will want to aggregate over a longer period and for shorter windows i.e. 1 hour you will want to investigate at 2-minute intervals. DEFAULT option gives the best performance vs granularity.
+
+>Aggregation is a key in performance data analysis. You should always chose the minimum aggregation (i.e. 1 minute) however this will downloads lots of data from the database. To minimise performance impact, the aggregation will automatically increase with the longer periods and will allow you to view trends over longer period of time. [Read more about the impact of aggregation on granularity](https://sqlwatch.io/blog/impact-of-aggregation-on-granularity-and-observability/).
+
+**Show Baselines**: Baselines pull additional data from the SQLWATCH database and, to minimise impact, are only downloaded if the Report Window is <= 24 hours. Also, you can completely disable baselines here.
