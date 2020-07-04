@@ -5,7 +5,7 @@ url: https://docs.sqlwatch.io
 permalink: pretty
 exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json",  "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
 
-logo: "/assets/images/sqlwatch-docs-logo-purple-200px.png"
+logo: "/assets/images/sqlwatch-docs-logo-large.png"
 
 plugins:
   - jemoji
