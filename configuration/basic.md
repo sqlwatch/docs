@@ -20,7 +20,7 @@ For SQLWATCH to record blocking chains we have to enable The `blocked process th
 
 The blocked process monitor will log any transactions (queries) being blocked for longer than the set threshold. In the example below, we are setting it to log blocking chains lasting longer than 15 seconds.
 
-```sql
+```
 exec sp_configure 'show advanced options', 1 ;  
 RECONFIGURE ;  
 exec sp_configure 'blocked process threshold', 15 ;  
@@ -29,7 +29,7 @@ RECONFIGURE ;
 
 To make this easier, SQLWATCH comes with a stored procedure that can execute the above configuration:
 
-```sql
+```
 --default threshold will be 15 seconds:
 exec [dbo].[usp_sqlwatch_config_set_blocked_proc_threshold] 
 
@@ -41,7 +41,7 @@ exec [dbo].[usp_sqlwatch_config_set_blocked_proc_threshold] @threshold_seconds =
 
 You may wish to compress data in SQLWATCH to improve storage utilisation and I/O performance at the cost of CPU utilisation. You can do so by running:
 
-```sql
+```
 exec [dbo].[usp_sqlwatch_config_set_table_compression];
 exec [dbo].[usp_sqlwatch_config_set_index_compression];
 ```
@@ -74,7 +74,7 @@ Please note the `instance_name` is dynamic and contains actual names of objects 
 
 To create all default SQLWATCH agent jobs you can run:
 
-```sql
+```
 --add any missing SQLWATCH jobs, will not remove existing SQLWATCH jobs:
 exec [dbo].[usp_sqlwatch_config_set_default_agent_jobs]
 
