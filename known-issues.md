@@ -21,7 +21,7 @@ If you encounter this issue you can:
 
 By default, SQL Server creates new databases with the default servers' collation unless otherwise specified. The collation cannot be changed once the database has been created. By manually creating SQLWATCH database will force default collation.
 
-```
+```sql
 CREATE DATABASE [SQLWATCH]
 GO
 ```
@@ -52,7 +52,7 @@ To work around this issue, we have to unregister the data-tier application. This
 
 Alternatively, you can use T-SQL to achieve the same:
 
-```
+```sql
 declare @instance_id uniqueidentifier
 declare @database_name sysname = 'SQLWATCH'
 
@@ -90,7 +90,7 @@ The recommended and most secure way is to create a [SQL Agent Proxy Account](htt
 
 An alternative and slightly easier way are to grant `db_datawriter` and `db_datareader` roles to the login reported in the error in the SQLWATCH database. However, in this case, we may be granting permission to the SQLWATCH database to an account that perhaps should not have such access. Please be sure you are familiar with the security configuration in your environment. In our example this would be:
 
-```
+```sql
 USE [master]
 GO
 CREATE LOGIN [HOME\SQL-TEST-1$] FROM WINDOWS
