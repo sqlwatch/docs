@@ -54,14 +54,14 @@ Once you have opened the dashboard in Power BI, you are going to have to tell it
 
 **Show Baselines**: Baselines pull additional data from the SQLWATCH database and, to minimise impact, are only downloaded if the Report Window is <= 24 hours. Also, you can completely disable baselines here.
 
-## Power BI Privacy
+## Privacy
 
 When Power BI loads data it makes sure that data from different sources (or tables) does not get mixed up which, in some systems, could cause privacy issues. Since we are joining different SQLWATCH tables during the load (time dimensions and facts) this error will likely always pop up. I do not know any other solution at this point, if you do, please get in touch. 
 
 To work around this issue, please to go File -> Options and Settings -> Options -> Current File -> Privacy and set Ignore privacy setting:
 ![SQLWATCH PowerBI Privacy Setting]({{ site.baseurl }}/assets/images/sqlwatch-powerbi-privacy-setting.png)
 
-## Power BI Load Performance
+## Load Performance
 
 A lot of work has gone into optimisation and reducing the impact on the SQL database when querying data as well as reducing resources required for Power BI to render data. However, there few things to consider when it comes to the Power BI Performance:
 
