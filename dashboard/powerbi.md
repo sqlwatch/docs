@@ -46,10 +46,28 @@ Once you have opened the dashboard in Power BI, you are going to have to tell it
 
 **Report End Time (datetime)**: For servers and clients in the same time zone, type date and time when you want reporting window to end. Follow the example in the dropdown box or select NOW to get the most recent, timezone agnostic, data. For example, if you type 2018-12-31 23:59:59, the report will show data up till that timestamp. If your server is in a different time zone than PowerBI, you may need to manually set dates, based on the local server DateTime.
 
-**Report Window (hours)**: How many hours to import going back from the Report end time. For example, if this parameter = 4 and End Time = GETDATE() the report will show last 4 hours from now. This way you can travel back in time and see any time slice of historical performance data. You can select from the dropdown or type your own.
+**Report Window (hours)**: How many hours to import going back from the Report end time. For example, if this parameter = 4 and End Time = GETDATE() the report will show the last 4 hours from now. This way you can travel back in time and see any time slice of historical performance data. You can select from the dropdown or type your own.
 
 **Report Aggregation**: Select aggregation over time or type your own. Select DEFAULT to let it automatically calculate the best level based on the report window. For example 5 minute will average data points over 5 minute periods and For large windows i.e. last 30 days you will want to aggregate over a longer period and for shorter windows i.e. 1 hour you will want to investigate at 2-minute intervals. DEFAULT option gives the best performance vs granularity.
 
->Aggregation is a key in performance data analysis. You should always chose the minimum aggregation (i.e. 1 minute) however this will downloads lots of data from the database. To minimise performance impact, the aggregation will automatically increase with the longer periods and will allow you to view trends over longer period of time. [Read more about the impact of aggregation on granularity](https://sqlwatch.io/blog/impact-of-aggregation-on-granularity-and-observability/).
+>Aggregation is a key in performance data analysis. You should always choose the minimum aggregation (i.e. 1 minute) however this will download lots of data from the database. To minimise performance impact, the aggregation will automatically increase with the longer periods and will allow you to view trends over a longer period. [Read more about the impact of aggregation on granularity](https://sqlwatch.io/blog/impact-of-aggregation-on-granularity-and-observability/).
 
 **Show Baselines**: Baselines pull additional data from the SQLWATCH database and, to minimise impact, are only downloaded if the Report Window is <= 24 hours. Also, you can completely disable baselines here.
+
+## Power BI Privacy
+
+When Power BI loads data it makes sure that data from different sources (or tables) does not get mixed up which, in some systems, could cause privacy issues. Since we are joining different SQLWATCH tables during the load (time dimensions and facts) this error will likely always pop up. I do not know any other solution at this point, if you do, please get in touch. To work around this issue, please to go File -> Options and Settings -> Options -> Current File -> Privacy and set Ignore privacy setting:
+![SQLWATCH PowerBI Privacy Setting]({{ site.baseurl }}/assets/images/sqlwatch-powerbi-privacy-setting.png)
+
+## Power BI Load Performance
+
+A lot of work has gone into optimisation and reducing the impact on the SQL database when querying data as well as reducing resources required for Power BI to render data. However, there few things to consider when it comes to the Power BI Performance:
+
+**Data Volumes**
+This is the most important factor. It is obvious that the more data Power BI downloads, the more it has to process and render. 
+There are some clever mechanisms built into Power BI such as [High-Density Sampling](https://docs.microsoft.com/en-us/power-bi/desktop-high-density-sampling) which reduce the amount of data rendered with minimised loss of granularity.
+
+However, first and foremost, download less data into Power BI to make it run fast. Reduce the time window or reduce granularity by increasing aggregation. Hiding baselines and filtering central repository will also reduce the amount of data.
+
+**Schema parsing and query preparation**
+You will find that there isn't a lot of activity in the database yet Power BI can still take some time to refresh the data. This is because if it's cumbersome schema parsing, query preparation and often single threaded execution. There isn't much we can do about it, it's just how Power BI works. 
