@@ -141,6 +141,34 @@ exec [dbo].[usp_sqlwatch_config_repository_create_linked_server]
 
 **Create remote collector jobs**
 
+Linked Server collector can be multithreaded and there is no limit on the number of threads providing the performance of the central repository is adequate. The linked server approach creates a table based queue of all remote objects to import with the required dependency (i.e. meta tables first, the logger tables) in `[dbo].[sqlwatch_meta_repository_import_queue]`. The queue can be then processed by executing stored procedure:exec `[dbo].[usp_sqlwatch_repository_remote_table_import]`. To increase the number of import threads schedule the above procedure multiple times. To create default repository agent jobs, please execute the below procedure:
+
+```
+exec [dbo].[usp_sqlwatch_config_repository_create_agent_jobs]
+    @threads = --number of thread jobs to create
+```
+
+This will result in the following jobs to be created:
+1. A single enqueuing job that creates a list of remote objects to pull data from ([dbo].[sqlwatch_meta_repository_import_queue]) and ultimately controls how often they are processed. 
+1. A single or multiple import jobs, depending on the @threads variable that will process the import queue. These jobs can run every 1 minute and will process any outstanding items in the queue table. 
+
+```
+  SQLWATCH-REPOSITORY-IMPORT-ENQUEUE
+  SQLWATCH-REPOSITORY-IMPORT-T2
+  SQLWATCH-REPOSITORY-IMPORT-T3
+  SQLWATCH-REPOSITORY-IMPORT-T4
+  SQLWATCH-REPOSITORY-IMPORT-T5
+  SQLWATCH-REPOSITORY-IMPORT-T6
+  SQLWATCH-REPOSITORY-IMPORT-T7
+  SQLWATCH-REPOSITORY-IMPORT-T8
+```
+
+**Execution**
+
+Each thread registers itself in the threads table `[dbo].[sqlwatch_meta_repository_import_thread]` which contains the name of the SQL Agent Job currently running the thread. When the thread completes, it is also removed from the threads table.
+
+Import status of each object can be seen in the '[dbo].[sqlwatch_meta_repository_import_status]' table.
+
 ## Adding remote server to collection
 In both cases, the configuration of the remote instance is the same. For the central repository to know which remote instances to collect data from, they must be defined in `[dbo].[sqlwatch_config_sql_instance]`. This can be achieved by directly inserting data into the table, or by executing a stored procedure:
 
