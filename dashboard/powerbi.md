@@ -9,9 +9,6 @@ nav_order: 30
 
 ---
 
-1. TOC 
-{:toc}
-
 SQLWATCH comes with a [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) dashboard to help visualise and analyse collected data. 
 It's a free Windows application that can be downloaded from their [website](https://powerbi.microsoft.com/en-us/get-started/).
 
@@ -21,6 +18,9 @@ Power BI is very efficient in handling data and displaying visuals. It is also v
 I have used SQLWATCH dashboard comfortably on a Surface 4 with i7 and 8GB RAM. [Hardware requirements](https://docs.microsoft.com/en-us/power-bi/desktop-get-the-desktop#minimum-requirements)
 
 SQLWATCH Dashboard can also run in the Power BI Service. There are no custom requirements for Visuals or any other components. Neither R nor Python are required.
+
+1. TOC 
+{:toc}
 
 ## Permissions
 
