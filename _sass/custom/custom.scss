@@ -9,8 +9,13 @@
 }
 
 .btn-primary {
-    background-color: #7C008C;
-    background-image: linear-gradient(#A200B8, #7C008C);
+    background-color: #7c008c;
+    background-image: linear-gradient(#a200b8, #7c008c);
+}
+
+.btn-primary:hover, .btn-primary.zeroclipboard-is-hover {
+    background-color: #5b0067;
+    background-image: linear-gradient(#9200a5,#5b0067);
 }
 
 .nav-list .nav-list-item .nav-list-expander {
