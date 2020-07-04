@@ -9,7 +9,7 @@ title: Configuration
 
 ---
 
-SQLWATCH has been designed with "set it and forget it" approach and does not require any additional configuration to get started. Available configuration options are listed below.
+SQLWATCH has been designed with "set it and forget it" approach and does not require any maintenance or configuration to get started. It will run out of the box. However, some configuration is available.
 
 - TOC 
 {:toc}
