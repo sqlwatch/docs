@@ -100,3 +100,12 @@ SQL User for the remote instance or blank for Windows authentication.
 **repository_password** The SQL Password to access central repository or blank for Windows authentication.
 
 **repository_user_name** The SQL User to access central repository or blank for Windows authentication.
+
+### Execution
+
+The package does delta loads of the `logger*` tables and full loads of the `meta*` tables. Meta tables are relatively small and should not contain more than a few hundred rows. Logger tables can be quite big and thanks to delta loads, the more often the package runs, the less data it pulls with every run. A good start is to run it every 10 minutes.
+
+There is no predefined agent job for the SSIS based repository collector due to a variety of environments and folder names in SSISDB. Once the package has been deployed onto the preferred Integration Services Server and configured please crate agent job with the schedule as you please.
+
+When scheduling the `.dtsx`, the control package should be called from the agent job:
+![SQLWATCH SSIS Agent Job]({{ site.baseurl }}/assets/images/sqlwatch-ssis-agent-job.png)
