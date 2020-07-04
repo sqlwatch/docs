@@ -10,7 +10,7 @@ parent: Configuration
 ---
 
 1. TOC
-{: .toc }
+{:toc }
 
 ## Actions
 
