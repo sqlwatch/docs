@@ -4,6 +4,8 @@ color_scheme: custom-light
 permalink: pretty
 exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json",  "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
 
+logo: "/assets/images/sqlwtach-docs-logo.png"
+
 plugins:
   - jemoji
   - jekyll-seo-tag  
