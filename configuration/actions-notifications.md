@@ -9,5 +9,4 @@ parent: Configuration
 
 ---
 
-- TOC 
-{:toc}
+Coming soon...
