@@ -48,7 +48,8 @@ To configure SSIS package, navigate to the Project in the Integration Services C
 
 You can apply the configuration to the project, or individual packages. The project will contain the collection of all configuration options from child packages. [Learn more about SSIS Catalog](https://docs.microsoft.com/en-us/sql/integration-services/catalog/ssis-catalog)
 
-#### Control Package
+**Control Package**
+{: .fs-5 }
 
 The control package `control_import.dtsx` is responsible for orchestrating multi-threaded data collection and execution of the Worker Package `import_remote_data.dtsx`
 ![SQLWATCH SSIS Control Package]({{ site.baseurl }}/assets/images/sqlwatch-control-package.png)
@@ -70,7 +71,8 @@ The SQL Password to access central repository or blank for Windows authenticatio
 **repository_user_name**:
 The SQL User to access central repository or blank for Windows authentication.
 
-#### Worker Package
+**Worker Package**
+{: .fs-5 }
 
 The worker package `import_remote_data.dtsx` is responsible for the actual data collection from remote instances into the central repository.
 ![SQLWATCH SSIS Worker Package]({{ site.baseurl }}/assets/images/sqlwatch-worker-package.png)
@@ -109,3 +111,49 @@ There is no predefined agent job for the SSIS based repository collector due to 
 
 When scheduling the `.dtsx`, the control package should be called from the agent job:
 ![SQLWATCH SSIS Agent Job]({{ site.baseurl }}/assets/images/sqlwatch-ssis-agent-job.png)
+
+## Linked Server
+
+In order to invoke collection via Linked Server, a linked server object to the SQLWATCH database on each monitored instance must be created. This can be achieved by executing stored procedure `[dbo].[usp_sqlwatch_user_repository_create_linked_server]`
+
+**Create all required linked servers**
+
+The procedure can create all required linked servers as per the `[linked_server_name]` column in `[dbo].[sqlwatch_config_sql_instance]` table:
+```
+exec [dbo].[usp_sqlwatch_config_repository_create_linked_server]
+    @rmtuser --optional user name for the remote instance (same for all) or blank to use default windows auth,
+    @rmtpassword --optional password for the remote instance (same for all) or blank to use default windows auth
+```
+
+**Create a specific linked server**
+
+Alternatively, it can create a specific linked server. This is the default behaviour when executing `[dbo].[usp_sqlwatch_user_repository_add_remote_instance]`
+
+```
+exec [dbo].[usp_sqlwatch_config_repository_create_linked_server]
+    @sql_instance --name of the existing sql instance in [dbo].[sqlwatch_config_sql_instance],
+    @linked_server --optional, name of the required linked server. if blank a default name will be created,
+    @rmtuser --optional user name for the remote instance (same for all) or blank to use default windows auth,
+    @rmtpassword --optional password for the remote instance (same for all) or blank to use default windows auth
+```
+
+[Learn more about creating Linked Servers](https://docs.microsoft.com/en-us/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine)
+
+**Create remote collector jobs**
+
+## Adding remote server to collection
+In both cases, the configuration of the remote instance is the same. For the central repository to know which remote instances to collect data from, they must be defined in `[dbo].[sqlwatch_config_sql_instance]`. This can be achieved by directly inserting data into the table, or by executing a stored procedure:
+
+![SQLWATCH Config SQL Instance]({{ site.baseurl }}/assets/images/sqlwatch-config-sqlinstance.png)
+
+```
+exec [dbo].[usp_sqlwatch_config_repository_add_remote_instance]
+    @sql_instance --sql instance name,
+    @hostname --hostname, if different to the @sql_instance, for example this could be in IP if no DNS records present,
+    @sql_port --non standard sql port, leave NULL for the default 1433,
+    @sqlwatch_database_name --name of the SQLWATCH database,
+    @environment --name of the environment (DEV,PROD,QA or anything) - this is for the user convinience,
+    @linked_server_name --name of the linked server, a new LS will be created if not exists. If you prefer to use existing LS, leave this blank and manually update [linked_server_name] in [dbo].[sqlwatch_config_sql_instance]. If you are using SSIS, leave NULL. 
+    @rmtuser --username for the linked server authentication, leave NULL for default Windows Auth or when using SSIS,
+    @rmtpassword --password for the linked server authentication, leave NULL for default Windows Auth or when using SSIS,
+```
