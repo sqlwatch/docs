@@ -56,9 +56,7 @@ Once you have opened the dashboard in Power BI, you are going to have to tell it
 
 ## Privacy
 
-When Power BI loads data it makes sure that data from different sources (or tables) does not get mixed up which, in some systems, could cause privacy issues. Since we are joining different SQLWATCH tables during the load (time dimensions and facts) this error will likely always pop up. I do not know any other solution at this point, if you do, please get in touch. 
-
-To work around this issue, please to go File -> Options and Settings -> Options -> Current File -> Privacy and set Ignore privacy setting:
+When Power BI loads data it makes sure that data from different sources (or tables) does not get mixed up which, in some systems, could cause privacy issues. Since we are joining different SQLWATCH tables during the load (time dimensions and facts) it may throw a privacy error. To work around this issue, please to go File -> Options and Settings -> Options -> Current File -> Privacy and set Ignore privacy setting:
 ![SQLWATCH PowerBI Privacy Setting]({{ site.baseurl }}/assets/images/sqlwatch-powerbi-privacy-setting.png)
 
 ## Load Performance
