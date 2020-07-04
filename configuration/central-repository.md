@@ -50,19 +50,19 @@ The control package `control_import.dtsx` is responsible for orchestrating multi
 
 **Parameters**
 
-*number_of_parallel_collectors*
+**number_of_parallel_collectors**:
 The number of threads for parallel collection. If this is set to > 1, then multiple servers will be collected in parallel, in addition to each collector data flow being run in parallel, according to the MaxConcurrentExecutables parameter. Be careful as running parallel collectors may be slower than a single thread. Make sure the central repository can sustain the workload. Maximum allowed parallel threads are 8.
 
-*repository_database* 
+**repository_database**:
 The name of the database where the central repository is. Default SQLWATCH.
 
-*repository_instance_name*
+**repository_instance_name**:
 The name of the SQL Server instance where the central repository is hosted.
 
-*repository_password*
+**repository_password**:
 The SQL Password to access central repository or blank for Windows authentication.
 
-*repository_user_name*
+**repository_user_name**:
 The SQL User to access central repository or blank for Windows authentication.
 
 ## Linked Server
