@@ -108,8 +108,3 @@ GO
 ## Deadlock when creating the database
 
 A few people experienced a deadlock whilst creating SQLWATCH Database. In all cases this was caused by the Query Store enabled on the model database. The locking transaction was `GetQdsTotalReseveredPageCount`. If you experience such issue, please disable Query Store on the model database and then re-try SQLWATCH deployment. 
-
-## Power BI Privacy
-
-When Power BI loads data it makes sure that data from different sources (or tables) does not get mixed up which, in some systems, could cause privacy issues. Since we are joining different SQLWATCH tables during the load (time dimensions and facts) this error will likely always pop up. I do not know any other solution at this point, if you do, please get in touch. To work around this issue, please to go File -> Options and Settings -> Options -> Current File -> Privacy and set Ignore privacy setting:
-![SQLWATCH PowerBI Privacy Setting]({{ site.baseurl }}/assets/images/sqlwatch-powerbi-privacy-setting.png)
