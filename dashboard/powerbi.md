@@ -36,7 +36,7 @@ To set started, simply open the SQLWATCH dashboard (.`pbx`) in the Power BI Desk
 ## Parameters
 
 Once you have opened the dashboard in Power BI, you are going to have to tell it your server and database names so it can download the data. This is done in parameters:
-![PowerBI Parameters Edit]({{ site.baseurl}}//assets/images/sqlwatch-powerbi-edit-parameters.png)
+![PowerBI Parameters Edit]({{ site.baseurl }}/assets/images/sqlwatch-powerbi-edit-parameters.png)
 
 **SQL Instance**: SQL Instance with SQLWATCH or SQLWATCH Central Repository to connect to
 
