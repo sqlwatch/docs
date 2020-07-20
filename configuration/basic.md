@@ -81,3 +81,19 @@ exec [dbo].[usp_sqlwatch_config_set_default_agent_jobs]
 --remove existing and recreate all SQLWATCH jobs:
 exec [dbo].[usp_sqlwatch_config_set_default_agent_jobs] @remove_existing = 1
 ```
+
+# Global Configuration
+
+The table `[dbo].[sqlwatch_config]` holds configuration items that influence the way the application works.
+
+## Logging level
+
+By default, SQLWATCH will only log Warnings and Errors in the `[dbo].[sqlwatch_app_log]` table. To enable verbose (informational) logging you can change the item 7 value to 1, or to 0 to disable verbose logging:
+
+```
+  update [dbo].[sqlwatch_config]
+  set config_value = 1 
+  where config_id = 7
+```
+
+Remember to change it back to 0 after you have done investigating the issue as it may cause the `app_log` table to grow rapidly.
