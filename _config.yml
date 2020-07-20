@@ -1,4 +1,4 @@
-remote_theme: vsoch/docsy-jekyll
+remote_theme: pmarsceill/just-the-docs
 color_scheme: custom-light
 url: https://docs.sqlwatch.io
 
