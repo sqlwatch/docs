@@ -83,7 +83,7 @@ exec [dbo].[usp_sqlwatch_config_set_default_agent_jobs]
 exec [dbo].[usp_sqlwatch_config_set_default_agent_jobs] @remove_existing = 1
 ```
 
-## Global (Application) Configuration Items
+## Global (Application) Configuration
 
 The table `[dbo].[sqlwatch_config]` holds configuration items that influence the way the application works.
 
