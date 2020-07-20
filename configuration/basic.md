@@ -5,7 +5,6 @@ title: Configuration
 ---
 
 # Basic Configuration
-{: .no_toc }
 
 ---
 
