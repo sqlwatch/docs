@@ -187,3 +187,10 @@ exec [dbo].[usp_sqlwatch_config_repository_add_remote_instance]
     @rmtuser --username for the linked server authentication, leave NULL for default Windows Auth or when using SSIS,
     @rmtpassword --password for the linked server authentication, leave NULL for default Windows Auth or when using SSIS,
 ```
+## Removing remote server from central repository
+To remove remote server from the central repository and DELETE all of its data, run the following:
+```
+delete from [dbo].[sqlwatch_config_sql_instance]
+where sql_instance = 'SQL-1'
+```
+This will REMOVE all data assosiated with this instance from the central repository. The deletion will run in small batches to avoid performance impact and thus it may take a long time - few minutes to even few hours but with minimum impact. It is advisable to run this as a one off agent job and leave until it is finished. 
