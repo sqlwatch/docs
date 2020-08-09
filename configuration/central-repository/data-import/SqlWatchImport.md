@@ -37,7 +37,7 @@ Before the first run, you are going to have to configure Central Repository conn
 <add key="CentralRepositorySqlDatabase" value="SQLWATCH" />
 ```
 
-## Add remote instance
+## Add and manage remote instance
 
 The application allows adding new and updating existing remote Sql Instances. 
 
@@ -71,7 +71,7 @@ SqlWatchImport.exe -h
 The configuration data is saved in table `[dbo].[sqlwatch_config_sql_instance]`.
 
 
-### Credential encryption
+## Credential encryption
 
 It is advisable to use Windows Authentication instead of Sql Authentication. If you really have to use Sql Authentication you have to keep in mind few things.
 
