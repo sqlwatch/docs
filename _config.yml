@@ -28,7 +28,7 @@ back_to_top_text: "Back to top"
 
 # Footer content 
 # appears at the bottom of every page's main content
-footer_content: "SQLWATCH Docs portal is maintained by <a href='https://github.com/marcingminski/'>@marcingminski</a>. Some content is submitted by contributors. All content is under <a href='https://github.com/sqlwatch/share/blob/master/LICENSE'>MIT license</a>. <!--<p><img src='https://hitcounter.pythonanywhere.com/count/tag.svg' alt='Hits'></p>-->"
+footer_content: "Last updated {{ site.time }}. SQLWATCH Docs portal is maintained by <a href='https://github.com/marcingminski/'>@marcingminski</a>. Some content is submitted by contributors. All content is under <a href='https://github.com/sqlwatch/share/blob/master/LICENSE'>MIT license</a>. <!--<p><img src='https://hitcounter.pythonanywhere.com/count/tag.svg' alt='Hits'></p>-->"
 
 # Footer "Edit this page on GitHub" link text
 gh_edit_link: true # show or hide edit this page link
