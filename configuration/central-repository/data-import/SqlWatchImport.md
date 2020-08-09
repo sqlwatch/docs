@@ -5,7 +5,7 @@ title: SqlWatchImport
 nav_order: 10
 ---
 
-# Import remote data using `SqlWatchImport.exe`
+# Import remote data using `SqlWatchImport`
 {: .no_toc }
 ---
 
