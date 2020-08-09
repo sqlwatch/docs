@@ -6,6 +6,10 @@ nav_order: 20
 ---
 
 # Import remote data using SQL Server Integration Services
+{: .no_toc }
+
+- TOC 
+{:toc}
 
 >It is assumed that the SQL Server Intergration Services (SSIS) is installed and configured and that the SSISDB has been initialised and the environment is operational.
 
