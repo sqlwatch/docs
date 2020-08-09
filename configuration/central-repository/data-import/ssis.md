@@ -5,7 +5,7 @@ title: SSIS
 nav_order: 20
 ---
 
-## SSIS
+## Import remote data using SQL Server Integration Services
 
 >It is assumed that the SQL Server Intergration Services (SSIS) is installed and configured and that the SSISDB has been initialised and the environment is operational.
 
