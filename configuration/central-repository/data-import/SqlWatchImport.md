@@ -57,7 +57,7 @@ Add remote Sql Instance with custom hostname and port:
 ```
 SqlWatchImport.exe --add -s SQLSERVER1 -d SQLWATCH -h 192.168.1.10 -o 1433
 ```
-> You only have to configure hostname if your @@SERVERNAME does not match the physical hostname. Normally this would be a configuration error apart from rare scenarios, such as running Sql as a Docker container.
+> You only have to configure hostname if your `@@SERVERNAME` does not match the physical hostname. Normally this would be a configuration error apart from rare scenarios, such as running Sql as a Docker container.
 
 Update existing remote instance:
 ```
