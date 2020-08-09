@@ -13,6 +13,11 @@ Prior to version `3.x` there are two ways to import data into the central reposi
 * [SQL Server Integration Package (SSIS)](https://docs.microsoft.com/en-us/sql/integration-services/sql-server-integration-services)
 * [Linked Server](https://docs.microsoft.com/en-us/sql/relational-databases/linked-servers/linked-servers-database-engine). 
 
+--
+
+- TOC 
+{:toc}
+
 ## Adding remote server to collection
 In both cases, the configuration of the remote instance is the same. For the central repository to know which remote instances to collect data from, they must be defined in `[dbo].[sqlwatch_config_sql_instance]`. This can be achieved by directly inserting data into the table, or by executing a stored procedure:
 
@@ -29,9 +34,6 @@ exec [dbo].[usp_sqlwatch_config_repository_add_remote_instance]
     @rmtuser --username for the linked server authentication, leave NULL for default Windows Auth or when using SSIS,
     @rmtpassword --password for the linked server authentication, leave NULL for default Windows Auth or when using SSIS,
 ```
-
-- TOC 
-{:toc}
 
 ## SQL Server Integration Services Package
 >It is assumed that the SQL Server Integration Services (SSIS) is installed and configured and that the SSISDB has been initialized and the environment is operational.
