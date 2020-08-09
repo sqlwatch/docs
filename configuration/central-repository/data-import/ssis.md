@@ -5,11 +5,11 @@ title: SSIS
 nav_order: 20
 ---
 
-## Import remote data using SQL Server Integration Services
+# Import remote data using SQL Server Integration Services
 
 >It is assumed that the SQL Server Intergration Services (SSIS) is installed and configured and that the SSISDB has been initialised and the environment is operational.
 
-### SSIS Package Deployment
+## SSIS Package Deployment
 
 The SSIS package can be easily deployed using the provided `.ispac` file. [Learn more about SSIS deployment](https://docs.microsoft.com/en-us/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages). Alternatively, it can be also deployed from the Visual Studio Project. Upgrading SSIS package is simply re-deploying a newer version and removal is done by deleting the deployed package.
 
@@ -17,20 +17,20 @@ The SSIS package can be easily deployed using the provided `.ispac` file. [Learn
   <iframe class="responsive-iframe" src="https://www.youtube-nocookie.com/embed/RKfOBlTXk_A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-### SSIS Package Configuration
+## SSIS Package Configuration
 
 To configure SSIS package, navigate to the Project in the Integration Services Catalogs:
 ![SQLWATCH SSIS Configuration]({{ site.baseurl }}/assets/images/sqlwatch-ssis-package-configuration.png)
 
 You can apply the configuration to the project, or individual packages. The project will contain the collection of all configuration options from child packages. [Learn more about SSIS Catalog](https://docs.microsoft.com/en-us/sql/integration-services/catalog/ssis-catalog)
 
-**Control Package**
+### Control Package
 {: .fs-5 }
 
 The control package `control_import.dtsx` is responsible for orchestrating multi-threaded data collection and execution of the Worker Package `import_remote_data.dtsx`
 ![SQLWATCH SSIS Control Package]({{ site.baseurl }}/assets/images/sqlwatch-control-package.png)
 
-**Parameters**
+#### Parameters
 
 **number_of_parallel_collectors**:
 The number of threads for parallel collection. If this is set to > 1, then multiple servers will be collected in parallel, in addition to each collector data flow being run in parallel, according to the MaxConcurrentExecutables parameter. Be careful as running parallel collectors may be slower than a single thread. Make sure the central repository can sustain the workload. Maximum allowed parallel threads are 8.
@@ -53,7 +53,7 @@ The SQL User to access central repository or blank for Windows authentication.
 The worker package `import_remote_data.dtsx` is responsible for the actual data collection from remote instances into the central repository.
 ![SQLWATCH SSIS Worker Package]({{ site.baseurl }}/assets/images/sqlwatch-worker-package.png)
 
-**Parameters**
+#### Parameters
 
 >Worker package parameters are passed from the control package. However, you can also invoke the worker package manually for a specific instance with the same parameters
 
@@ -79,7 +79,7 @@ SQL User for the remote instance or blank for Windows authentication.
 
 **repository_user_name** The SQL User to access central repository or blank for Windows authentication.
 
-### Execution
+## Execution
 
 The package does delta loads of the `logger*` tables and full loads of the `meta*` tables. Meta tables are relatively small and should not contain more than a few hundred rows. Logger tables can be quite big and thanks to delta loads, the more often the package runs, the less data it pulls with every run. A good start is to run it every 10 minutes.
 
