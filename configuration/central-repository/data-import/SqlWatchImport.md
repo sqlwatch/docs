@@ -1,6 +1,5 @@
 ---
 parent: Central Repository
-grand_parent: Configuration
 title: SqlWatchImport
 nav_order: 10
 ---

@@ -1,6 +1,5 @@
 ---
 parent: Central Repository
-grand_parent: Configuration
 title: Alterative imports
 nav_order: 20
 ---
