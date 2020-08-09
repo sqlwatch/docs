@@ -1,6 +1,6 @@
 ---
 parent: Configuration
-title: Central Repository
+title: Central Repository Overview
 nav_order: 20
 has_children: true
 ---
