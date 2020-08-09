@@ -1,3 +1,9 @@
+@media (max-width: 50rem) {
+  .main {
+    margin-bottom:40px;
+  }
+}
+
 blockquote {
   border-left: 2px solid;
   padding-left: 10px;
@@ -32,8 +38,6 @@ blockquote {
 .nav-list .nav-list-item .nav-list-expander {
     visibility: hidden;
 }
-
-
 
 .responsive-iframe-container {
   position: relative;
