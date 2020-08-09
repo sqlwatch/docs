@@ -7,6 +7,7 @@ nav_order: 30
 
 # Import remote data using Linked Server
 {: .no_toc }
+---
 
 - TOC 
 {:toc}
