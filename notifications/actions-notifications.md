@@ -1,5 +1,5 @@
 ---
-nav_order: 10
+nav_order: 20
 title: Actions & Notifications
 ---
 
