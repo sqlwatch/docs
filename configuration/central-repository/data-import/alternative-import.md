@@ -158,3 +158,20 @@ This will result in the following jobs to be created:
 Each thread registers itself in the threads table `[dbo].[sqlwatch_meta_repository_import_thread]` which contains the name of the SQL Agent Job currently running the thread. When the thread completes, it is also removed from the threads table.
 
 Import status of each object can be seen in the '[dbo].[sqlwatch_meta_repository_import_status]' table.
+
+## Adding remote server to collection
+In both cases, the configuration of the remote instance is the same. For the central repository to know which remote instances to collect data from, they must be defined in `[dbo].[sqlwatch_config_sql_instance]`. This can be achieved by directly inserting data into the table, or by executing a stored procedure:
+
+![SQLWATCH Config SQL Instance]({{ site.baseurl }}/assets/images/sqlwatch-config-sqlinstance.png)
+
+```sql
+exec [dbo].[usp_sqlwatch_config_repository_add_remote_instance]
+    @sql_instance --sql instance name,
+    @hostname --hostname, if different to the @sql_instance, for example this could be in IP if no DNS records present,
+    @sql_port --non standard sql port, leave NULL for the default 1433,
+    @sqlwatch_database_name --name of the SQLWATCH database,
+    @environment --name of the environment (DEV,PROD,QA or anything) - this is for the user convinience,
+    @linked_server_name --name of the linked server, a new LS will be created if not exists. If you prefer to use existing LS, leave this blank and manually update [linked_server_name] in [dbo].[sqlwatch_config_sql_instance]. If you are using SSIS, leave NULL. 
+    @rmtuser --username for the linked server authentication, leave NULL for default Windows Auth or when using SSIS,
+    @rmtpassword --password for the linked server authentication, leave NULL for default Windows Auth or when using SSIS,
+```
