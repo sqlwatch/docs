@@ -59,4 +59,4 @@ Data from remote instances can be imported into the central repository in severa
 * SSIS package
 * Linked Server 
 
-Check the list below for details
+Check the TABLE OF CONTENTS below for details
