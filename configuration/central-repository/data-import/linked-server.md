@@ -26,7 +26,7 @@ exec [dbo].[usp_sqlwatch_config_repository_create_linked_server]
 
 ## Create a specific linked server
 
-Alternatively, it can create a specific linked server. This is the default behaviour when executing `[dbo].[usp_sqlwatch_user_repository_add_remote_instance]`
+Alternatively, it can create a specific linked server. This is the default behavior when executing `[dbo].[usp_sqlwatch_user_repository_add_remote_instance]`
 
 ```
 exec [dbo].[usp_sqlwatch_config_repository_create_linked_server]
@@ -40,7 +40,7 @@ exec [dbo].[usp_sqlwatch_config_repository_create_linked_server]
 
 ## Create remote collector jobs
 
-Linked Server collector can be multithreaded and there is no limit on the number of threads providing the performance of the central repository is adequate. The linked server approach creates a table based queue of all remote objects to import with the required dependency (i.e. meta tables first, the logger tables) in `[dbo].[sqlwatch_meta_repository_import_queue]`. The queue can be then processed by executing stored procedure:exec `[dbo].[usp_sqlwatch_repository_remote_table_import]`. To increase the number of import threads schedule the above procedure multiple times. To create default repository agent jobs, please execute the below procedure:
+Linked Server collector can be multi-threaded and there is no limit on the number of threads providing the performance of the central repository is adequate. The linked server approach creates a table based queue of all remote objects to import with the required dependency (i.e. meta tables first, the logger tables) in `[dbo].[sqlwatch_meta_repository_import_queue]`. The queue can be then processed by executing stored procedure:exec `[dbo].[usp_sqlwatch_repository_remote_table_import]`. To increase the number of import threads schedule the above procedure multiple times. To create default repository agent jobs, please execute the below procedure:
 
 ```
 exec [dbo].[usp_sqlwatch_config_repository_create_agent_jobs]

@@ -23,7 +23,7 @@ The permission required to collect data from the remote instance is `db_dataread
 ## Ways to import data
 
 Data from remote instances can be imported into the central repository in several ways:
-* `SqlWatchImport.exe` - a proprietary console application specifically designed and optimised to import remote SqlWatch data (from version `3.x`)
+* `SqlWatchImport.exe` - a proprietary console application specifically designed and optimized to import remote SqlWatch data (from version `3.x`)
 * SSIS Package [SQL Server Integration Package (SSIS)](https://docs.microsoft.com/en-us/sql/integration-services/sql-server-integration-services)
 * [Linked Server](https://docs.microsoft.com/en-us/sql/relational-databases/linked-servers/linked-servers-database-engine). 
 

@@ -12,7 +12,7 @@ nav_order: 20
 - TOC 
 {:toc}
 
->It is assumed that the SQL Server Intergration Services (SSIS) is installed and configured and that the SSISDB has been initialised and the environment is operational.
+>It is assumed that the SQL Server Integration Services (SSIS) is installed and configured and that the SSISDB has been initialized and the environment is operational.
 
 ## Package Deployment
 
