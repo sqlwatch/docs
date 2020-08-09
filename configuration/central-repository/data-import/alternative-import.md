@@ -9,11 +9,7 @@ nav_order: 20
 {: .no_toc }
 ---
 
-Prior to version `3.x` there are two ways to import data into the central repository from remote instances:
-* [SQL Server Integration Package (SSIS)](https://docs.microsoft.com/en-us/sql/integration-services/sql-server-integration-services)
-* [Linked Server](https://docs.microsoft.com/en-us/sql/relational-databases/linked-servers/linked-servers-database-engine). 
-
---
+Prior to version `3.x` there are two ways to import data into the central repository from remote instances SQL Server Integration Package (SSIS) and Linked Server.
 
 - TOC 
 {:toc}
@@ -36,7 +32,7 @@ exec [dbo].[usp_sqlwatch_config_repository_add_remote_instance]
 ```
 
 ## SQL Server Integration Services Package
->It is assumed that the SQL Server Integration Services (SSIS) is installed and configured and that the SSISDB has been initialized and the environment is operational.
+>It is assumed that the [SQL Server Integration Package (SSIS)](https://docs.microsoft.com/en-us/sql/integration-services/sql-server-integration-services) is installed and configured and that the SSISDB has been initialized and the environment is operational.
 
 ### Package Deployment
 
@@ -121,7 +117,7 @@ When scheduling the `.dtsx`, the control package should be called from the agent
 
 ## Linked Server
 
-In order to invoke collection via Linked Server, a linked server object to the SQLWATCH database on each monitored instance must be created. This can be achieved by executing stored procedure `[dbo].[usp_sqlwatch_user_repository_create_linked_server]`
+In order to invoke collection via [Linked Server](https://docs.microsoft.com/en-us/sql/relational-databases/linked-servers/linked-servers-database-engine), a linked server object to the SQLWATCH database on each monitored instance must be created. This can be achieved by executing stored procedure `[dbo].[usp_sqlwatch_user_repository_create_linked_server]`
 
 ### Create all required linked servers
 
