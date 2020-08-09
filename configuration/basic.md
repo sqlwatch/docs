@@ -1,6 +1,6 @@
 ---
-nav_order: 20
-has_children: true
+nav_order: 100
+parent: Getting Started
 title: Configuration
 ---
 
