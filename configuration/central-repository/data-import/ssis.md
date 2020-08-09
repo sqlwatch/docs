@@ -5,7 +5,7 @@ title: SSIS
 nav_order: 20
 ---
 
-# Import remote data using SQL Server Integration Services
+# Import remote data using SQL Server Integration Services Package
 {: .no_toc }
 ---
 
@@ -14,7 +14,7 @@ nav_order: 20
 
 >It is assumed that the SQL Server Intergration Services (SSIS) is installed and configured and that the SSISDB has been initialised and the environment is operational.
 
-## SSIS Package Deployment
+## Package Deployment
 
 The SSIS package can be easily deployed using the provided `.ispac` file. [Learn more about SSIS deployment](https://docs.microsoft.com/en-us/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages). Alternatively, it can be also deployed from the Visual Studio Project. Upgrading SSIS package is simply re-deploying a newer version and removal is done by deleting the deployed package.
 
@@ -22,7 +22,7 @@ The SSIS package can be easily deployed using the provided `.ispac` file. [Learn
   <iframe class="responsive-iframe" src="https://www.youtube-nocookie.com/embed/RKfOBlTXk_A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-## SSIS Package Configuration
+## Package Configuration
 
 To configure SSIS package, navigate to the Project in the Integration Services Catalogs:
 ![SQLWATCH SSIS Configuration]({{ site.baseurl }}/assets/images/sqlwatch-ssis-package-configuration.png)
