@@ -51,3 +51,10 @@ delete from [dbo].[sqlwatch_config_sql_instance]
 where sql_instance = 'SQL-1'
 ```
 This will REMOVE all data assosiated with this instance from the central repository. The deletion will run in small batches to avoid performance impact and thus it may take a long time - few minutes to even few hours but with minimum impact. It is advisable to run this as a one off agent job and leave until it is finished. 
+
+## Ways to import data
+
+Data from remote instances can be imported into the central repository in several ways:
+* Using `SqlWatchImport.exe` - a proprietary console application specifically designed and optimised to import remote SqlWatch data
+* SSIS package
+* Linked Server  
