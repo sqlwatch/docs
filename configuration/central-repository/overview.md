@@ -55,7 +55,7 @@ This will REMOVE all data assosiated with this instance from the central reposit
 ## Ways to import data
 
 Data from remote instances can be imported into the central repository in several ways:
-* Using `SqlWatchImport.exe` - a proprietary console application specifically designed and optimised to import remote SqlWatch data (from version 3.x)
+* Using `SqlWatchImport.exe` - a proprietary console application specifically designed and optimised to import remote SqlWatch data (from version `3.x`)
 * SSIS package
 * Linked Server 
 
