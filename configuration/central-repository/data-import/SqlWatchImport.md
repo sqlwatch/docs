@@ -32,6 +32,6 @@ The configuration parameters are in the `App.config` file.
 
 ## Console parameters
 
-In addition to the normal, unattended execution, the application accepts a number of arguments.
+In addition to the normal, unattended data import, the application accepts a number of arguments for adding and managing remote instances.
 Please run `SqlWatchImport.exe -h` for help.
 
