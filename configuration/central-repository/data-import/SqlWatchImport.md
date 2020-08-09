@@ -14,6 +14,8 @@ nav_order: 10
 
 ## Overview
 
+**This documentation is in progress.**
+
 The console application has been written to efficiently handle imports from the remote instances. This is the preferred way. The application was written to address the following problems:
 
 * SSIS is fast but cumbersome to maintain - every time new table or column is changed or added to the SqlWatch database, the package requires manual changes to reflect database changes. This is very time consuming and error prone. I am also trying to stay away from BIML to reduce complexity of the solution.
@@ -24,4 +26,12 @@ The console application has been written to efficiently handle imports from the 
 
 The `SqlWatchImport.exe` leverages the performance of `SqlBulkCopy` and data streaming for fast inserts and .NET framework for Thread and Connection pooling which makes it very efficient. In my test setup, importing data from the same, single remote instance takes ~10 seconds in SSIS and Linked Server and 1.2 second using the console application.
 
-This documentation is in progress, the rest is coming soon...
+## Configuration
+
+The configuration parameters are in the `App.config` file.
+
+## Console parameters
+
+In addition to the normal, unattended execution, the application accepts a number of arguments.
+Please run `SqlWatchImport.exe -h` for help.
+
