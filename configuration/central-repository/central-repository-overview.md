@@ -4,7 +4,7 @@ title: Central Repository
 nav_order: 20
 ---
 
-# Central Repository Configuration
+# Central Repository Overview
 {: .no_toc }
 ---
 
