@@ -1,7 +1,7 @@
 ---
-parent: Central Repository Overview
+parent: Central Repository
 grand_parent: Configuration
-title: Import data using SSIS
+title: SSIS
 nav_order: 20
 ---
 

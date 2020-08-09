@@ -1,7 +1,7 @@
 ---
-parent: Central Repository Overview
+parent: Central Repository
 grand_parent: Configuration
-title: Import data using Linked Server
+title: Linked Server
 nav_order: 30
 ---
 

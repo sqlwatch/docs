@@ -1,7 +1,7 @@
 ---
-parent: Central Repository Overview
+parent: Central Repository
 grand_parent: Configuration
-title: Import data using SqlWatchImport.exe
+title: SqlWatchImport.exe
 nav_order: 10
 ---
 

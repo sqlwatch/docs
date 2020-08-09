@@ -1,11 +1,11 @@
 ---
 parent: Configuration
-title: Central Repository Overview
+title: Central Repository
 nav_order: 20
 has_children: true
 ---
 
-# Central Repository Overview
+# Overview
 {: .no_toc }
 ---
 
