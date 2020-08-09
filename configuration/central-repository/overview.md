@@ -9,7 +9,7 @@ has_children: true
 {: .no_toc }
 ---
 
-The central repository is an ordinary SQLWATCH database where data from other instances is being imported for centralised reporting. Any SQLWATCH database can become a central repository. Data collection can happen via [SQL Server Integration Package (SSIS)](https://docs.microsoft.com/en-us/sql/integration-services/sql-server-integration-services) or via [Linked Server](https://docs.microsoft.com/en-us/sql/relational-databases/linked-servers/linked-servers-database-engine). 
+The central repository is an ordinary SQLWATCH database where data from other instances is being imported for centralised reporting. Any SQLWATCH database can become a central repository.
 
 - TOC 
 {:toc}
@@ -55,8 +55,8 @@ This will REMOVE all data assosiated with this instance from the central reposit
 ## Ways to import data
 
 Data from remote instances can be imported into the central repository in several ways:
-* Using `SqlWatchImport.exe` - a proprietary console application specifically designed and optimised to import remote SqlWatch data (from version `3.x`)
-* SSIS package
-* Linked Server 
+* `SqlWatchImport.exe` - a proprietary console application specifically designed and optimised to import remote SqlWatch data (from version `3.x`)
+* SSIS Package [SQL Server Integration Package (SSIS)](https://docs.microsoft.com/en-us/sql/integration-services/sql-server-integration-services)
+* [Linked Server](https://docs.microsoft.com/en-us/sql/relational-databases/linked-servers/linked-servers-database-engine). 
 
 Check the TABLE OF CONTENTS below for details
