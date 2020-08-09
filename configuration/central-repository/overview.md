@@ -19,14 +19,16 @@ The performance impact on the remote instance will be mainly driven by the amoun
 
 The permission required to collect data from the remote instance is `db_datareader`. Permissions required to insert data on the central repository are: `db_datareader` to read parameters, `db_datawriter` to write data and `db_ddladmin` for bulk inserts.
 
-Central Repository can download data from remote instances in two ways:
+## Ways to import data
 
-- SQL Server Integration Services (SSIS)
-- Linked Server
+Data from remote instances can be imported into the central repository in several ways:
+* `SqlWatchImport.exe` - a proprietary console application specifically designed and optimised to import remote SqlWatch data (from version `3.x`)
+* SSIS Package [SQL Server Integration Package (SSIS)](https://docs.microsoft.com/en-us/sql/integration-services/sql-server-integration-services)
+* [Linked Server](https://docs.microsoft.com/en-us/sql/relational-databases/linked-servers/linked-servers-database-engine). 
 
-Both methods do a FULL load of the relatively small `meta*` tables and delta loads of the `logger*` tables that contain the actual performance data. Whilst SSIS is a performance optimised engine and may perform faster, there is no noticable performance advantage of using either method and both perform in a similar way when pulling remote data. The advantage of using Linked Server is that it does not require SSIS and can be run on a SQL Server Express Edition with jobs invoked via Windows Scheduled Tasks instead of the SQL Agent.
+Check the TABLE OF CONTENTS at the bottom for details
 
->Linked Server approach is built programmatically and therefore easier to develop and maintain. It contains several improvements over the SSIS method, such as message logging to a table, automatic table import without the explicit declaration (SSIS requires metadata refresh which slows down the development) and forces full load of the header tables if missing keys are detected.
+All methods do a FULL load of the relatively small `meta*` tables and delta loads of the `logger*` tables that contain the actual performance data.
 
 ## Adding remote server to collection
 In both cases, the configuration of the remote instance is the same. For the central repository to know which remote instances to collect data from, they must be defined in `[dbo].[sqlwatch_config_sql_instance]`. This can be achieved by directly inserting data into the table, or by executing a stored procedure:
@@ -51,12 +53,3 @@ delete from [dbo].[sqlwatch_config_sql_instance]
 where sql_instance = 'SQL-1'
 ```
 This will REMOVE all data assosiated with this instance from the central repository. The deletion will run in small batches to avoid performance impact and thus it may take a long time - few minutes to even few hours but with minimum impact. It is advisable to run this as a one off agent job and leave until it is finished. 
-
-## Ways to import data
-
-Data from remote instances can be imported into the central repository in several ways:
-* `SqlWatchImport.exe` - a proprietary console application specifically designed and optimised to import remote SqlWatch data (from version `3.x`)
-* SSIS Package [SQL Server Integration Package (SSIS)](https://docs.microsoft.com/en-us/sql/integration-services/sql-server-integration-services)
-* [Linked Server](https://docs.microsoft.com/en-us/sql/relational-databases/linked-servers/linked-servers-database-engine). 
-
-Check the TABLE OF CONTENTS below for details
