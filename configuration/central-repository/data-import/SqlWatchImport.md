@@ -9,12 +9,12 @@ nav_order: 10
 {: .no_toc }
 ---
 
+Since version `3.x`, a new console application has been made available to efficiently handle imports from the remote instances. This is the preferred way to import data from the remote SQLWATCH databases. 
+
 - TOC 
 {:toc}
 
 ## Overview
-
-Since version `3.x`, a new console application has been made available to efficiently handle imports from the remote instances. This is the preferred way to import data from the remote SQLWATCH databases. 
 
 The `SqlWatchImport.exe` leverages the performance of the .NET `SqlBulkCopy` and data streaming for fast inserts as well as framework's Thread and Connection pooling which makes it very efficient and lightweight. In my test setup, importing data from the same, single remote instance takes ~10 seconds in SSIS and Linked Server and 1.2 second using the console application.
 
