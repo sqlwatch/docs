@@ -37,7 +37,7 @@ Automation and integration with dbatools make it easy to keep decentralised depl
 SQLWATCH is made of:
 - SQLWATCH database
 - Dashboards
-- Optional SSIS collector
+- Optional Central Repository collector
 
 ## Requirements
 
