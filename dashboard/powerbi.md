@@ -48,6 +48,8 @@ Once you have opened the dashboard in Power BI, you are going to have to tell it
 
 **Report Window (hours)**: How many hours to import going back from the Report end time. For example, if this parameter = 4 and End Time = GETDATE() the report will show the last 4 hours from now. This way you can travel back in time and see any time slice of historical performance data. You can select from the dropdown or type your own.
 
+> Note that some collectors run less often than others and some pages may be blank. For example, if the index collector runs every 6 hours at 12am, 6am, 12pm and 6pm and you are loading the dashboard up at 4pm, and only showing last 1 hour, the index statistics will not be shown.
+
 **Report Aggregation**: Select aggregation over time or type your own. Select DEFAULT to let it automatically calculate the best level based on the report window. For example 5 minute will average data points over 5 minute periods and For large windows i.e. last 30 days you will want to aggregate over a longer period and for shorter windows i.e. 1 hour you will want to investigate at 2-minute intervals. DEFAULT option gives the best performance vs granularity.
 
 >Aggregation is a key in performance data analysis. You should always choose the minimum aggregation (i.e. 1 minute) however this will download lots of data from the database. To minimise performance impact, the aggregation will automatically increase with the longer periods and will allow you to view trends over a longer period. [Read more about the impact of aggregation on granularity](https://sqlwatch.io/blog/impact-of-aggregation-on-granularity-and-observability/).
