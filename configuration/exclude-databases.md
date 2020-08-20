@@ -6,6 +6,8 @@ title: Exclude Database
 ---
 
 # Exclude Database from Collection
+{: .no_toc }
+---
 
 We can exclude specific database from specific collectors in table `[dbo].[sqlwatch_config_exclude_database]`
 

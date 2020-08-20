@@ -6,6 +6,8 @@ title: Exclude Long Queries
 ---
 
 # Exclude Long Queries from the XES Long Query Collector
+{: .no_toc }
+---
 
 The Extended Event Session `SQLWATCH_Long_Queries` will collect queries that run for longer 15 seconds. However, in some cases long running queries are unavoidable in which case they would flood the collector.
 

@@ -6,6 +6,8 @@ title: Include Index Histograms
 ---
 
 # Include specific index histograms
+{: .no_toc }
+---
 
 Index histograms can be very large and so they are not being collected by default. 
 To collect histograms of specific indexes we can add them to the `[dbo].[sqlwatch_config_include_index_histogram]` table.

@@ -5,6 +5,8 @@ title: Application
 ---
 
 # Global Application Configuration
+{: .no_toc }
+---
 
 The global configuration drives how the application behaves and its functionality. The configuration is in the `[dbo].[sqlwatch_config]` table:
 

@@ -3,10 +3,11 @@ nav_order: 20
 parent: Data Collection
 grand_parent: Configuration
 title: Exclude Wait Stats
-has_children: true
 ---
 
 # Exclude Wait Stats from Collection
+{: .no_toc }
+---
 
 To exclude specific Wait Type from collection, you can add it to the `[dbo].[sqlwatch_config_exclude_wait_stats]` table. 
 
