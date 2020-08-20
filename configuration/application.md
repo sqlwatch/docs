@@ -23,7 +23,7 @@ Number of days to keep failed items in the action queue table `[dbo].[sqlwatch_m
 ## Action Queue Success Items retention days
 Number of days to keep successful items in the action queue table `[dbo].[sqlwatch_meta_action_queue]`.
 
-## Application Log (app_log) retention days
+## Application Log (`app_log`) retention days
 Number of days to keep records in the `[dbo].[sqlwatch_app_log]` table.
 
 ## Error on NULL check value
@@ -36,7 +36,7 @@ When set to `0`, only a warning will be logged in `[dbo].[sqlwatch_app_log]` and
 ## Fail back to system_health session
 SQLWATCH comes with its own Extended Events Sessions that have been optimise for its data collection. If the SQLWATCH XE sessions are disabled, we can try collect basic metrics from the default `system_health` session. It is however recommended to enable SQLWATCH XES.
 
-## Last Seen Items (date_last_seen) retention days
+## Last Seen Items (`date_last_seen`) retention days
 Number of days to keep removed or excluded items. For example, a table that has been deleted, or a database that has been dropped will have the `date_last_seen` date in the past. We will remove those items after certain number of days. This setting applies to selected "meta" tables that have the `date_last_seen` field.
 
 ## Last Seen Items purge batch size
