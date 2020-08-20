@@ -2,12 +2,14 @@
 nav_order: 10
 parent: Configuration
 title: Data Collection
+has_children: true
 ---
 
 # Data Collection
 {: .no_toc }
 ---
 
+There are several options that allow to configure data collection behavior.
 - TOC 
 {:toc}
 
