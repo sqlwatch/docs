@@ -1,5 +1,5 @@
 ---
-nav_order: 10
+nav_order: 15
 title: Configuration
 has_children: true
 ---
