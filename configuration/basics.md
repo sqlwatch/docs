@@ -40,6 +40,8 @@ exec [dbo].[usp_sqlwatch_config_set_blocked_proc_threshold] @threshold_seconds =
 
 Retention periods are configurable for each snapshot and stored in the `[dbo].[sqlwatch_config_snapshot_type]` table in the `[snapshot_retention_days]` column. If you are offloading data to a central repository or Azure, you can drop local retention to a day or two. 
 
+A negative value indicates that only the most recent snapshot will be kept regardless its age.
+
 The action retention is executed by `SQLWATCH-INTERNAL-RETENTION` and runs every hour by default.
 
 ## Logging level
