@@ -22,6 +22,8 @@ During installation, the following objects will be created:
 - Extended Event Sessions (`SQLWATCH-%`)
 - Agent Jobs (`SQLWATCH-%`)
 
+During installation, once the Agent Jobs have been deployed, the following job will be automatically invoked: `SQLWATCH-INTERNAL-CONFIG`. The job is normally scheduled to run every hour but the performance data collection will not start until this job runs. If the job fails to run during the deployment, you may want to run it manually after the deployment.
+
 ## Install with dbatools
 
 [dbatools](https://dbatools.io/) support multi-server installation with a single command:
