@@ -1,6 +1,5 @@
 ---
 nav_order: 100
-parent: Getting Started
 title: Configuration
 ---
 
