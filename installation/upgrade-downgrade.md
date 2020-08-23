@@ -16,9 +16,6 @@ The only exception is when using SSMS, there is an explicit Upgrade Option in th
 
 ![SSMS Upgrade DacPac]({{ site.baseurl }}/assets/images/ssms-upgrade-data-tier-application.png)
 
->Upgrading SQLWATCH will NOT overwrite content in the configuration tables so if you have made any changes, they will be retained. It will however drop and recreate Extended Events Sessions.
-If you have made any modifications that you'd like to keep, you would have to re-deploy them after the upgrade. 
-
 ## Challenges
 Whilst declarative deployment makes the development very easy and deployment very reliable (either all or nothing) it can be a bottleneck when large schema changes are required. 
 For example, migrating data type from UNIQUE IDENTIFIER to INTEGER would fail as such conversion is impossible. 
