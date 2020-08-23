@@ -17,6 +17,24 @@ Since version `3.x`, a new console application has been made available to effici
 
 The `SqlWatchImport.exe` leverages the performance of the .NET `SqlBulkCopy` and data streaming for fast inserts as well as framework's Thread and Connection pooling which makes it very efficient and lightweight. In my test setup, importing data from the same, single remote instance takes ~10 seconds in SSIS and Linked Server and 1.2 second using the console application.
 
+The more often the import runs, the quicker it is because it has less work to do. You will have to find the best balance in your environment, as a reference, I have it running every 1 minute and as you can see, some servers take less tha 1 second to import:
+
+```
+2020-08-23 20:36:31.669  SQLWATCH Remote Instance Importer 
+                         Imports remote SQLWATCH data into the Central Repository
+                         Marcin Gminski 2020, SQLWATCH.IO
+                         Version: 1.1.7537.25291 (8/20/2020 2:03:02 PM) 
+2020-08-23 20:36:31.732  Got 3 instances to import 
+2020-08-23 20:36:31.732  Got 44 tables to import from each instance 
+2020-08-23 20:36:31.748  Importing: "SQLWATCH-TEST-1" 
+2020-08-23 20:36:32.107  Importing: "SQL-1" 
+2020-08-23 20:36:32.138  Finished: "SQLWATCH-TEST-1". Time taken: 379.5364ms 
+2020-08-23 20:36:32.424  Importing: "SQLWATCH-TEST-2" 
+2020-08-23 20:36:33.201  Finished: "SQLWATCH-TEST-2". Time taken: 768.9659ms 
+2020-08-23 20:36:33.857  Finished: "SQL-1". Time taken: 1746.7494ms 
+2020-08-23 20:36:33.857  Import completed in 2176.7349ms 
+```
+
 Prior to version `3.x` the data import was done with SSIS or via Linked Server. The application was written to address the following problems:
 
 * SSIS is fast but cumbersome to maintain - every time new table or column is changed or added to the SqlWatch database, the package requires manual changes to reflect database changes. This is very time consuming and error prone. I am also trying to stay away from BIML to reduce complexity of the solution.
