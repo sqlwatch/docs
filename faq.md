@@ -10,7 +10,7 @@ nav_order: 500
 - TOC
 {:toc}
 
-# The `date_last_seen` is not showing the correct date.
+# Why is `date_last_seen` not showing the correct date.
 This field is on some of the `sqlwatch_meta*` tables and used to remove old items as part of the retention process. By default, anything "not seen" in over 32 days will be removed.
 When the any of the meta tables is merged, this field is also updated for any matched rows to ensure they are not deleted as part of the retention process. Any new rows have the `date_last_seen` set as `getutcdate()` 
 
@@ -42,3 +42,13 @@ when not matched then
     insert (column, date_last_seen)
     values (value, getutcdate())
 ```
+
+# How does SQLWATCH capture T-SQL Queries
+
+I believe that there is no point capturing the entire workload as part of your BAU monitoring, instead we should focus on the queries that cause troubles. Queries that could cause trouble are those that prevent other queries from running i.e. blockers, and those that encounter excessive waits. 
+
+Waits mean that the SQL Server was not able to serve the query and it had to wait for the resource to become available. This could be because the SQL Server is not fast enough for what it is trying to do or the query is poorly written. There are cases were the first is true, i.e. slow storage will cause lots of IO related waits but 95% of the time the queries are just poor, or a combination of both. Although the word "excessive" will mean different things for different people, I coded SQLWATCH to capture queries with WAITS longer than 1 second. Normally, waits should only last few milliseconds. A constant wait for over 1 second could (but does not have to) indicate problems.
+
+If you have a busy server with lots of queries lasting over 1 second you may want to tweak the XES and increase the time to 2 or more seconds, or tune your queries.
+
+If you want to capture and analyse your entire workload, there are tools designed to do just that, such as [WorkloadTools](https://github.com/spaghettidba/WorkloadTools) by Gianluca Sartori. 
