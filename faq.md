@@ -25,7 +25,6 @@ when matched then
 when not matched then
     insert (column, date_last_seen)
     values (value, getutcdate())
-
 ```
 
 Since the version `3.x`, the `SqlWatchImport.exe` is also using this field when importing data to limit the number of rows and to speed up the import. On systems where both, the `SqlWatchImport.exe` and the merge run frequently we would be importing the same data with every run. To speed up the import process, we are delaying the update of the `date_last_seen` until it at least 24 hours old:
@@ -42,5 +41,4 @@ when matched then and datediff(hour,date_last_see,getutcdate()) > 24
 when not matched then
     insert (column, date_last_seen)
     values (value, getutcdate())
-
 ```
