@@ -45,9 +45,11 @@ when not matched then
 
 # How does SQLWATCH capture T-SQL Queries
 
-I believe that there is no point capturing the entire workload as part of your BAU monitoring, instead we should focus on the queries that cause troubles. Queries that could cause trouble are those that prevent other queries from running i.e. blockers, and those that encounter excessive waits. 
+I believe that there is no point capturing the entire workload as part of your BAU monitoring, instead we should focus on the queries that cause troubles. Long query does not always mean it's a bad query. For example, a long import of large data set, or DBCC checks, or backups will all take few or more minutes to complete. Queries that could cause trouble are those that prevent other queries from running i.e. blockers, and those that encounter excessive, bad waits. 
 
-Waits mean that the SQL Server was not able to serve the query and it had to wait for the resource to become available. This could be because the SQL Server is not fast enough for what it is trying to do or the query is poorly written. There are cases were the first is true, i.e. slow storage will cause lots of IO related waits but 95% of the time the queries are just poor, or a combination of both. Although the word "excessive" will mean different things for different people, I coded SQLWATCH to capture queries with WAITS longer than 1 second. Normally, waits should only last few milliseconds. A constant wait for over 1 second could (but does not have to) indicate problems.
+WAITS mean that the SQL Server was not able to serve the query on time and it had to wait for the resource to become available. The query could be waiting for a number of reasons, it could be the storage (IO), CPU, Locks, and all sorts of things. Waits happen because the SQL Server is not fast enough for what you are trying to do or the query is poorly written. There are cases were the first is true, i.e. slow storage will cause lots of IO related waits but 95% of the time the queries are just poor, or a combination of both. 
+
+Although the word "excessive" will mean different things for different people, I coded SQLWATCH to capture queries with WAITS longer than 1 second. Normally, waits should only last few milliseconds. A constant wait for over 1 second could (but does not have to) indicate problems.
 
 If you have a busy server with lots of queries lasting over 1 second you may want to tweak the XES and increase the time to 2 or more seconds, or tune your queries.
 
