@@ -54,3 +54,13 @@ Although the word "excessive" will mean different things for different people, I
 If you have a busy server with lots of queries lasting over 1 second you may want to tweak the XES and increase the time to 2 or more seconds, or tune your queries.
 
 If you want to capture and analyse your entire workload, there are tools designed to do just that, such as [WorkloadTools](https://github.com/spaghettidba/WorkloadTools) by Gianluca Sartori. 
+
+# How to reduce the SQLWATCH database size
+
+You can reduce the size by applying data and index compression. Please check the configuration section for details. Compression can drastically remove table and index size.
+> Please note that depending on the deployment method, the compression may be removed when upgrading SQLWATCH. This is due to the declarative deployment model where data and index compression is not enabled on the database project.
+
+The below examples show SQLWATCH database with 30 days worth of data on a server with 180 databases and 53000 (53k) tables.
+
+Compression disabled, ordered by Reserved:
+Data and Index compression enabled, ordered by Reserved:
