@@ -63,4 +63,9 @@ You can reduce the size by applying data and index compression. Please check the
 The below examples show SQLWATCH database with 30 days worth of data on a server with 180 databases and 53000 (53k) tables.
 
 Compression disabled, ordered by Reserved:
+
+![SQLWATCH CPU Impact]({{ site.baseurl }}/assets/images/sqlwatch-data-compression-disabled.png)
+
 Data and Index compression enabled, ordered by Reserved:
+
+![SQLWATCH CPU Impact]({{ site.baseurl }}/assets/images/sqlwatch-data-compression-enabled.png)
