@@ -87,6 +87,10 @@ SqlWatchImport.exe -h
 ```
 The configuration data is saved in table `[dbo].[sqlwatch_config_sql_instance]`.
 
+## Data Import
+
+Once all remote instances have been added, data import can be simply invoked by running the `SqlWatchImport.exe` without any arguments.
+
 
 ## Credential encryption
 
