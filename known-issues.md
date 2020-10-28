@@ -108,3 +108,18 @@ GO
 ## Deadlock when creating the database
 
 A few people experienced a deadlock whilst creating SQLWATCH Database. In all cases this was caused by the Query Store enabled on the model database. The locking transaction was `GetQdsTotalReseveredPageCount`. If you experience such issue, please disable Query Store on the model database and then re-try SQLWATCH deployment. 
+
+## Timeout when deploying DACPAC
+
+Depending on your workload and evironment, the dacpac deployment may sometimes time out. If this happens, you may want to increase the deployment timeout. This option is only available when using `SqlPackage.exe`:
+
+```
+/p:CommandTimeout=240
+```
+
+For example:
+
+```
+SqlPackage.exe /Action:Publish /SourceFile:"C:\Temp\SQLWATCH.dacpac" /TargetDatabaseName:SQLWATCH /TargetServerName:SQLSERVER /p:RegisterDataTierApplication=True /p:CommandTimeout=240
+```
+Thanks to Rafael Cuesta for reporting this.
