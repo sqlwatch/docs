@@ -8,7 +8,6 @@ exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "pac
 logo: "/assets/images/sqlwatch-docs-logo-large.png"
 
 plugins:
-  - jemoji
   - jekyll-seo-tag  
   
   
